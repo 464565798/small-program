@@ -1,0 +1,22 @@
+
+//轮播静态描述文件
+
+module.exports = {
+// 是否自动播放
+  autoPlay : true,
+//时间
+  interval : 3000,
+//page颜色
+  indicatorColor : 'black',
+//是否展示page
+  indicatorDots : true,
+//当前页面颜色
+  indicatorActiveColor : 'red',
+//是否轮播
+  circular : true,
+//前间距
+  previousMargin : '0px',
+//后间距
+  nextMargin : '0px',
+
+};
