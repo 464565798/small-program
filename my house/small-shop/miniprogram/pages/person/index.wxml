@@ -1,0 +1,2 @@
+个人中心
+<button bindtap='bindtap'>点击</button>

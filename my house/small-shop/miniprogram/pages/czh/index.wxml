@@ -1,0 +1,91 @@
+车智汇666
+<view bindtap="bindtap" class='selectTap'>{{scanStr}}</view>
+<!-- <image></image> -->
+<!-- <import src='../desc/index.wxml'/>
+<template is='space' data='{{pathUrl:"../../resouce/icon_chezhihui_H.png"}}'>
+</template> -->
+<!-- <include src='../desc/index.wxml'/> -->
+<!-- <text selectable='{{true}}' space='nbsp' >
+  123456789sdfghjkl        fffff
+</text> -->
+
+<button type='primary' size='mini' open-type='getPhoneNumber' bindgetphonenumber='getPhone' style='display:block;'>获取电话</button>
+<!-- <checkbox-group bindchange='change'>
+  <label style=''>
+    <checkbox value='usa' style='display:block;'>美国</checkbox>
+    <checkbox value='ch'>中国</checkbox>
+    <checkbox value='ch=zn'>中国</checkbox>
+  </label>
+</checkbox-group> -->
+
+<!-- <form bindsubmit='submit' report-submit='{{true}}'>
+
+  <view>
+  <view>switch</view>
+  <switch name='switch'></switch>
+  </view>
+
+  <view>
+  <view>check</view>
+  <checkbox-group bindchange='change' name='check'>
+  <label style=''>
+    <checkbox value='usa' style='display:block;'>美国</checkbox>
+    <checkbox value='ch'>中国</checkbox>
+    <checkbox value='ch=zn'>中国</checkbox>
+  </label>
+</checkbox-group>
+  </view>
+
+  <view>
+    <button form-type='submit'>submit</button>
+  </view>
+
+</form> -->
+
+<!-- 国家选择 -->
+<!-- <view style='display:inline-block;width:200px;'> -->
+<picker mode='selector' bindchange='bindChangeCountry' value='{{index}}' range='{{address}}' style='display:inline-block;width:300rpx;' range-key='name'>
+<view>当前选择：</view> 
+  <button class="picker" size='mini'>
+      {{countryArray[index]}}
+    </button>
+</picker>
+<!-- </view> -->
+<!-- 地区选择 -->
+<picker mode='multiSelector' style='display:inline-block;width:300rpx;' range='{{[address,province]}}' value='{{index}}' range-key='name' bindcolumnchange='bindcolumnchange' bindchange='changeDetail'>
+
+<button size='mini' >具体地址</button>
+
+</picker>
+<view style='text-align:center;' wx:if='{{selectIndex.length>1}}'> {{address[selectIndex[0]].name + '--' + province[selectIndex[1]].name}}</view>
+
+
+<picker mode='date' value='2018-08-10' start='2018-08-01' end='2018-09-20' fields='month'>
+时间选择器
+</picker>
+<picker mode='region' bindchange='changeRegion'>
+地区选择器
+</picker>
+时间view
+<picker-view mode='region' indicator-style='height: 50px' style='background:lightgray;width:100%;height:300px;'>
+<picker-view-column>
+  <view wx:for='{{[1,2,3,4,5,6,7]}}' wx:key='{{item}}' style='text-align:center; line-height:50px;'>{{item}}年
+  </view>
+</picker-view-column>
+<picker-view-column>
+  <view wx:for='{{[1,2,3,4,5,6,7]}}' style='line-height:50px; text-align:center;' wx:key='{{item}}'>{{item}}月
+  </view>
+</picker-view-column>
+<picker-view-column>
+  <view wx:for='{{[1,2,3,4,5,6,7]}}' style='text-align:center;line-height:50px;' wx:key='{{item}}'>{{item}}日
+  </view>
+</picker-view-column>
+</picker-view>
+<!-- <textarea placeholder='请输入' maxlength='-1' auto-height style='width:100%;' bindinput='' cursor-spacing='100' bindconfirm='confrim'>
+</textarea>
+
+<input type='text' placeholder='请输入字符'></input> -->
+<!-- 
+<camera style='width:100%;height:300px;' bindtap='takePhoto'></camera>
+<image src='{{userImagePath}}'></image> -->
+<map style='width:100%;height:300px' show-location='{{true}}' longitude='{{longitude}}' latitude='{{latitude}}'></map>
