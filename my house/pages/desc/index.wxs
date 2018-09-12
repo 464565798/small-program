@@ -1,2 +1,0 @@
-var msg = 'hello zhang Sir';
-module.exports.msg = msg;
