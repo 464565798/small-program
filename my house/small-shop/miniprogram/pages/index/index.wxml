@@ -17,7 +17,17 @@
 <template is='cycleView' data="{{swiperItemImage:cycleImageData}}"></template>
 
 <scroll-view class='goods_table' scroll-y enable-back-to-top="{{true}}">
-  <view wx:for='{{goods}}' wx:key='{{item.id}}'>
+
+
+<!-- 综合服务区 -->
+  <view>
+
+  
+  </view>
+
+<!-- //推荐商品 -->
+  <view class='goods_title'>推荐商品</view>
+  <view wx:for='{{goods}}' wx:key='{{item.id}}' class='common_goods'>
     <text selectable='{{false}}'>{{item.name}}</text>
     <text selectable='{{false}}' class='price'>{{item.price}}</text>
   </view>

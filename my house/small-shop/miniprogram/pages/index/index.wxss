@@ -26,17 +26,36 @@
   margin-bottom: 10px;
 
 }
-.goods_table view{
-  height: 50px;
-  width: 100%;
-  /* background: gray; */
-  position: relative;
+/* 分类标题 */
+.goods_title{
+  padding-left: 15px;
+  text-align: left;
+  color: black;
+  font-weight: 17px;
+
 }
-.goods_table view text{
-  margin-left: 15px;
+/* 商品外层view */
+.goods_table view{
+
+   width: 100%;
+
+}
+.common_goods{
+  width: 150px;
+  /* height: 50px; */
+  /* padding-left: 15px; */
+  background: gray;
+  /* position: relative; */
+  display: inline-block;
+  /* float: left; */
+} 
+
+.common_goods text{
+  color: lightgray;
+  
 }
 .price{
-  position: absolute;
-  right: 50px;
+  /* position: absolute;
+  right: 50px; */
   color: red;
 }
