@@ -41,16 +41,31 @@
 
 }
 .common_goods{
-  width: 150px;
+
+   
+  flex-direction:row;
+  display: flex;
+
+}
+.flex-wrp {display: flex;}
+.bc_green {background: green;width:100px; height: 100px;}
+.bc_red {background: red;width:100px; height: 100px;}
+.bc_blue {background: blue;width:100px; height: 100px;}
+.common_goods_detail{
+  width: 300px;
+  height: 150px;
   /* height: 50px; */
   /* padding-left: 15px; */
   background: gray;
+  /* flex: 1; */
   /* position: relative; */
-  display: inline-block;
+  /* display: inline-block; */
   /* float: left; */
+  /* margin-left: 10px; */
+  /* margin-top: 10px; */
 } 
 
-.common_goods text{
+.common_goods_detail text{
   color: lightgray;
   
 }
