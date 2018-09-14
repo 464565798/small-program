@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    goods: [{ name: '沐浴露', price: 100, id: 1 }, { name: '袜子', price: 130, id: 2 }, { name: '禅语', price: 99, id: 3 }, { name: '花露', price: 10, id: 4 }, { name: '按摩器', price: 42, id: 5 }, { name: '风油精', price: 90, id: 6 }, { name: '无籽西瓜', price: 130, id: 7 }, { name: '连衣裙', price: 340, id: 8 }, { name: '沐浴露', price: 100, id: 1 }, { name: '袜子', price: 130, id: 2 }, { name: '禅语', price: 99, id: 3 }, { name: '花露', price: 10, id: 4 }, { name: '按摩器', price: 42, id: 5 }, { name: '风油精', price: 90, id: 6 }, { name: '无籽西瓜', price: 130, id: 7 }, { name: '连衣裙', price: 340, id: 8 }],
+    goods: [{ name: '沐浴露', price: 100, id: 1, image: '../../resouce/common/shop_common_01.jpg' }, { name: '袜子', price: 130, id: 2, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 3, image: '../../resouce/common/shop_common_03.jpg' }, { name: '花露', price: 10, id: 4, image: '../../resouce/common/shop_common_06.jpg' }, { name: '沐浴露', price: 100, id: 5, image: '../../resouce/common/shop_common_01.jpg' }, { name: '袜子', price: 130, id: 6, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 7, image: '../../resouce/common/shop_common_03.jpg' }, { name: '花露', price: 10, id: 8, image: '../../resouce/common/shop_common_06.jpg' }, { name: '沐浴露', price: 100, id: 9, image: '../../resouce/common/shop_common_07.jpg' }, { name: '袜子', price: 130, id: 10, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 11, image: '../../resouce/common/shop_common_06.jpg' }, { name: '花露', price: 10, id: 12, image: '../../resouce/common/shop_common_04.jpg' }],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -33,12 +33,12 @@ Page({
     wx.stopPullDownRefresh();
   },
   onReachBottom:function(){
-    console.log('上拉加载了');
-    var arr = this.data.goods;
-    var newArr = arr.concat(this.data.goods);
-    this.setData({
-      goods:newArr
-    });
+    // console.log('上拉加载了');
+    // var arr = this.data.goods;
+    // var newArr = arr.concat(this.data.goods);
+    // this.setData({
+    //   goods:newArr
+    // });
   },
   // onPageScroll:function(e){
   //   console.log(e);

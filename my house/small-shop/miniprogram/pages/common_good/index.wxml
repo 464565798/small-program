@@ -1,0 +1,12 @@
+
+<template name='common_goods'>
+  <view class='common_goods'>
+    <view wx:for='{{all_goods}}' wx:key='id' class='common_goods_detail'>
+      <image src='{{item.image}}' mode='widthFix'>图片</image>
+      <text selectable='{{false}}' class='common_goods_detail_text'>{{item.name}}</text>
+      <text selectable='{{false}}' class='common_goods_detail_text'>${{item.price}}</text>
+      <text class='each'>/例</text>
+    </view>
+    <view class='common_goods_footer'></view>
+  </view>
+</template>

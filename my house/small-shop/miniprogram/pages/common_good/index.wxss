@@ -1,0 +1,42 @@
+.common_goods{
+
+   
+  /* flex-direction:row;
+  display: flex; */
+
+}
+.common_goods_detail{
+  width: 360rpx;
+  /* height: 450rpx; */
+  /* height: 300px; */
+  /* margin-right: 10rpx; */
+  margin-bottom: 10rpx;
+  margin-left: 10rpx;
+  background: gray;
+  /* padding: 5px; */
+  overflow: hidden;
+  float: left;
+  text-align: center;
+
+} 
+.common_goods_detail image{
+
+  width: 360rpx;
+  /* height: 360rpx; */
+
+}
+.common_goods_detail_text{
+  color: lightgray;
+  
+}
+.each{
+  color: red;
+}
+.price{
+  /* position: absolute;
+  right: 50px; */
+  color: red;
+}
+.common_goods_footer{
+  clear: both;
+}
