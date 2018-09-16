@@ -26,11 +26,13 @@
 .right_server_main image,.left_server_main image{
   width: 360rpx;
   height: 360rpx;
+  display: block;
 }
 
 .right_server_top image,.right_server_bottom image,.left_server_top image,.left_server_bottom image{
   width: 360rpx;
-  height: 147rpx;
+  height: 150rpx;
+  display: block;
 }
 
 .right_server_bottom{

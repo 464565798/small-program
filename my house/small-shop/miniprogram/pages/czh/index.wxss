@@ -1,8 +1,70 @@
-.selectTap{
-  background: red;
-  width: 100px;
-  /* height: 20px; */
+
+page{
+height: 100%;
+}
+/* //左分类 */
+.left_categrogy{
+  width: 199rpx;
+  height: 100%;
+  float: left;
+  border-right: 1px solid lightgrey;
+}
+.cate_view_select,.cate_view{
+  width: 199rpx;
+  float: left;
+  margin-top: 5rpx;
+  height: 50px;
+  font-size: 15px;
+  justify-content:center; 
+  align-items:center;
+  display:flex;
+}
+.cate_view_select{
+
+  background: lightblue;
+  color: white;
+
+}
+.cate_view{
+  background: lightgray;
+  color: red;
+}
+
+
+
+
+
+
+
+
+
+/* 右分类 */
+.right_descgoods{
+  /* background: red; */
+  width: 550rpx;
+  height: 100%;
+  float: left;
+}
+
+.cate_good_view{
+  width: 260rpx;
+   height: 260rpx;
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
+  float: left;
+  position: relative;
+}
+.cate_good_view image{
+  width: 260rpx;
+  height: 260rpx;
+  display: block;
+}
+.cate_good_view text{
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   text-align: center;
-  border-radius: 5px;
-  margin: 0 auto;
+
 }

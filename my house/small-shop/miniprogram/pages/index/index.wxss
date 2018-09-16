@@ -1,5 +1,8 @@
 /**index.wxss**/
-
+page{
+  width: 100%;
+  height: 100%;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -29,7 +32,7 @@
 }
 /* 分类标题 */
 .goods_title{
-  margin-top: 10px;
+  margin-top: 1 0px;
   padding-left: 15px;
   text-align: left;
   color: red;
@@ -37,10 +40,6 @@
 
 }
 /* 商品外层view */
-.goods_table view{
 
-   /* width: 100%; */
-
-}
 @import "../common_good/index.wxss";
 @import "../server_module/index.wxss";

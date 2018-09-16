@@ -19,7 +19,7 @@ float: left;
 
 } 
 .common_goods_detail image{
-
+display: block;
   width: 360rpx;
   /* height: 360rpx; */
 
