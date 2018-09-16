@@ -1,0 +1,47 @@
+.left_server,.right_serve{
+  width: 750rpx;
+  /* margin-top: 20px; */
+  /* height: 770rpx; */
+  /* margin-bottom: 200px; */
+}
+
+.left_server_bottom{
+  margin-top: 10rpx;
+}
+/* .left_server view{
+  width: 360rpx;
+  margin-right: 10rpx;
+  float: right;
+} */
+.left_server_main,.left_server_top,.left_server_bottom{
+  width: 360rpx;
+  margin-right: 10rpx;
+  float: right;
+}
+.right_server_main,.right_server_top,.right_server_bottom{
+  width: 360rpx;
+  margin-left: 10rpx;
+  float: left;
+}
+.right_server_main image,.left_server_main image{
+  width: 360rpx;
+  height: 360rpx;
+}
+
+.right_server_top image,.right_server_bottom image,.left_server_top image,.left_server_bottom image{
+  width: 360rpx;
+  height: 147rpx;
+}
+
+.right_server_bottom{
+  margin-top: 10rpx;
+}
+.small_tip{
+  height: 50rpx;
+  width: 360rpx;
+  /* float:none; */
+  clear: both;
+  margin-left: 0px;
+  margin-right: 0px;
+  background: lightgray;
+}

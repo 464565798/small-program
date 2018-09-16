@@ -4,13 +4,20 @@ const app = getApp()
 
 Page({
   data: {
-    goods: [{ name: '沐浴露', price: 100, id: 1, image: '../../resouce/common/shop_common_01.jpg' }, { name: '袜子', price: 130, id: 2, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 3, image: '../../resouce/common/shop_common_03.jpg' }, { name: '花露', price: 10, id: 4, image: '../../resouce/common/shop_common_06.jpg' }, { name: '沐浴露', price: 100, id: 5, image: '../../resouce/common/shop_common_01.jpg' }, { name: '袜子', price: 130, id: 6, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 7, image: '../../resouce/common/shop_common_03.jpg' }, { name: '花露', price: 10, id: 8, image: '../../resouce/common/shop_common_06.jpg' }, { name: '沐浴露', price: 100, id: 9, image: '../../resouce/common/shop_common_07.jpg' }, { name: '袜子', price: 130, id: 10, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 11, image: '../../resouce/common/shop_common_06.jpg' }, { name: '花露', price: 10, id: 12, image: '../../resouce/common/shop_common_04.jpg' }],
+    goods: [{ name: '沐浴露', price: 100, id: 5, image: '../../resouce/common/shop_common_01.jpg' }, { name: '袜子', price: 130, id: 10, image: '../../resouce/common/shop_common_06.jpg' }, { name: '袜子', price: 130, id: 6, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 7, image: '../../resouce/common/shop_common_03.jpg' }, { name: '花露', price: 10, id: 8, image: '../../resouce/common/shop_common_04.jpg' }, { name: '沐浴露', price: 100, id: 9, image: '../../resouce/common/shop_common_05.jpg' }, { name: '禅语', price: 99, id: 11, image: '../../resouce/common/shop_common_07.jpg' }],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     cycleImageData: [{ url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg', target: 'goods_detail?goodId=123' }, { url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg', target: 'goods_detail?goodId=456' }, { url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg', target: 'goods_detail?goodId=789'}],
+
+    col1: [],
+    col2: [],
+    colWidth: 0,
+    col1Height: 0,
+    col2Height: 0,
   },
+  
   //轮播跳转
   tapImage: function (e) {
     var target = e.currentTarget.dataset.deepItemUrl;
@@ -53,6 +60,17 @@ Page({
     };
   },
   onLoad: function () {
+    let weak_self = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        let ww = res.windowWidth;
+        let wh = res.windowHeight;
+        let imageWidth = ww * 0.48;
+        weak_self.setData({
+          colWidth: imageWidth
+        });
+      },
+    });
     // wx.stopPullDownRefresh();
     // wx.startPullDownRefresh();
     if (app.globalData.userInfo) {
@@ -65,12 +83,45 @@ Page({
       title: '推荐商品',
     });
   },
-  // getUserInfo: function(e) {
-  //   console.log(e)
-  //   app.globalData.userInfo = e.detail.userInfo
-  //   this.setData({
-  //     userInfo: e.detail.userInfo,
-  //     hasUserInfo: true
-  //   })
-  // }
+  //图片加载完毕
+  onImageLoad: function (e) {
+    let imageId = e.currentTarget.id;
+    let oriWidth = e.detail.width;
+    let oriHeight = e.detail.height;
+    let scale = this.data.colWidth / oriWidth;
+    let imageHeight = scale * oriHeight;
+    let imageObj = null;
+    for (let i = 0; i < this.data.goods.length; i++) {
+      let img = this.data.goods[i];
+      
+      if (img.id == imageId) {
+        imageObj = img;
+        break;
+      }
+    }
+    if (this.data.col1Height <= this.data.col2Height) {
+      this.data.col1Height += imageHeight;
+      this.data.col1.push(imageObj);
+    } else {
+      this.data.col2Height += imageHeight;
+      this.data.col2.push(imageObj);
+    }
+    if (this.data.col1.length + this.data.col2.length == this.data.goods.length) {
+      
+      this.setData({
+        col1:this.data.col1,
+        col2:this.data.col2
+      });
+    }
+
+
+  },
+  // 点击图片
+  selectDescAction : function(e){
+
+    let currentId = e.currentTarget.id;
+    wx.navigateTo({
+      url: '../desc/index?goodId=' + e.currentTarget.id,
+    })
+  }
 })

@@ -1,5 +1,5 @@
-车智汇666
-<view bindtap="bindtap" class='selectTap'>{{scanStr}}</view>
+<!-- 车智汇666
+<view bindtap="bindtap" class='selectTap'>{{scanStr}}</view> -->
 <!-- <image></image> -->
 <!-- <import src='../desc/index.wxml'/>
 <template is='space' data='{{pathUrl:"../../resouce/icon_chezhihui_H.png"}}'>
@@ -9,7 +9,7 @@
   123456789sdfghjkl        fffff
 </text> -->
 
-<button type='primary' size='mini' open-type='getPhoneNumber' bindgetphonenumber='getPhone' style='display:block;'>获取电话</button>
+<!-- <button type='primary' size='mini' open-type='getPhoneNumber' bindgetphonenumber='getPhone' style='display:block;'>获取电话</button> -->
 <!-- <checkbox-group bindchange='change'>
   <label style=''>
     <checkbox value='usa' style='display:block;'>美国</checkbox>
@@ -44,15 +44,11 @@
 
 <!-- 国家选择 -->
 <!-- <view style='display:inline-block;width:200px;'> -->
-<picker mode='selector' bindchange='bindChangeCountry' value='{{index}}' range='{{address}}' style='display:inline-block;width:300rpx;' range-key='name'>
-<view>当前选择：</view> 
-  <button class="picker" size='mini'>
-      {{countryArray[index]}}
-    </button>
-</picker>
+<!-- <picker mo
+ -->
 <!-- </view> -->
 <!-- 地区选择 -->
-<picker mode='multiSelector' style='display:inline-block;width:300rpx;' range='{{[address,province]}}' value='{{index}}' range-key='name' bindcolumnchange='bindcolumnchange' bindchange='changeDetail'>
+<!-- <picker mode='multiSelector' style='display:inline-block;width:300rpx;' range='{{[address,province]}}' value='{{index}}' range-key='name' bindcolumnchange='bindcolumnchange' bindchange='changeDetail'>
 
 <button size='mini' >具体地址</button>
 
@@ -80,7 +76,7 @@
   <view wx:for='{{[1,2,3,4,5,6,7]}}' style='text-align:center;line-height:50px;' wx:key='{{item}}'>{{item}}日
   </view>
 </picker-view-column>
-</picker-view>
+</picker-view> -->
 <!-- <textarea placeholder='请输入' maxlength='-1' auto-height style='width:100%;' bindinput='' cursor-spacing='100' bindconfirm='confrim'>
 </textarea>
 
@@ -88,4 +84,4 @@
 <!-- 
 <camera style='width:100%;height:300px;' bindtap='takePhoto'></camera>
 <image src='{{userImagePath}}'></image> -->
-<map style='width:100%;height:300px' show-location='{{true}}' longitude='{{longitude}}' latitude='{{latitude}}'></map>
+<!-- <map style='width:100%;height:300px' show-location='{{true}}' longitude='{{longitude}}' latitude='{{latitude}}'></map> -->

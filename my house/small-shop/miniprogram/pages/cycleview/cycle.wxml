@@ -1,3 +1,4 @@
+<!-- 轮播 -->
 <wxs src='cycle.wxs' module='cycleData'></wxs>
 
 <template name='cycleView'>

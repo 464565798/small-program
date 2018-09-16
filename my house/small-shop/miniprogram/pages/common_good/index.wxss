@@ -1,9 +1,9 @@
 .common_goods{
 
-   
+   width: 370rpx;
   /* flex-direction:row;
   display: flex; */
-
+float: left;
 }
 .common_goods_detail{
   width: 360rpx;
@@ -12,7 +12,6 @@
   /* margin-right: 10rpx; */
   margin-bottom: 10rpx;
   margin-left: 10rpx;
-  background: gray;
   /* padding: 5px; */
   overflow: hidden;
   float: left;
@@ -26,8 +25,11 @@
 
 }
 .common_goods_detail_text{
-  color: lightgray;
+  color: blue;
   
+}
+.common_goods_price{
+  background: lightgray;
 }
 .each{
   color: red;
@@ -38,5 +40,6 @@
   color: red;
 }
 .common_goods_footer{
+  height: 0px;
   clear: both;
 }

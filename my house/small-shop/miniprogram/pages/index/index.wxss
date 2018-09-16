@@ -29,9 +29,10 @@
 }
 /* 分类标题 */
 .goods_title{
+  margin-top: 10px;
   padding-left: 15px;
   text-align: left;
-  color: black;
+  color: red;
   font-weight: 17px;
 
 }
@@ -41,4 +42,5 @@
    /* width: 100%; */
 
 }
-@import "../common_good/index.wxss"
+@import "../common_good/index.wxss";
+@import "../server_module/index.wxss";

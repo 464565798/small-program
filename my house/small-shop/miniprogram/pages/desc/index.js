@@ -5,6 +5,7 @@ Page({
     console.log(this.route);
   },
   data: {
+    goodsId:'',
     animationData: {},
     imagePath: '',
     array : [1,2,4,5],
@@ -24,7 +25,15 @@ Page({
 
   },
   onLoad : function(options){
+    wx.setNavigationBarTitle({
+      title : '商品详情'
+    });
     console.log('页面参数'+options.goodId);
+    if(options.goodId){
+      this.setData({
+       goodsId : options.goodId
+       });
+    }
   },
   // changeColor : function(){
   //   // console.log(parseInt(Math.random() * 4));
