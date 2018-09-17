@@ -5,6 +5,7 @@
     <input type='text' placeholder='请输入搜索商品的名称' confirm-type='search' bindconfirm='searchGoods'></input>
   </view>
 </view>
+
 <view class='cateragy_class'>
   <view>
     <text>综合排序</text>
@@ -18,4 +19,8 @@
     <text>发布时间</text>
     <image src='../../resouce/arrow_down.png'></image>
   </view>
+</view>
+<view class='goods_view'>
+  
+
 </view>

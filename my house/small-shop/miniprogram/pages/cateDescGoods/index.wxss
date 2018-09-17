@@ -1,5 +1,7 @@
-Page{
-
+page{
+height: 100%;
+overflow-x: hidden;
+position: relative;
 }
 .top_search{
   width: 750rpx;
@@ -7,12 +9,12 @@ Page{
 .input_search_view{
   margin: 0 auto;
   width: 650rpx;
-  height: 40px;
+  height: 60rpx;
   padding-left: 10px;
   border: 1px solid lightgrey;
   border-radius: 7px;
   font-size: 15px;
-  margin-top: 15px;
+  margin-top: 20rpx;
   justify-content:center; 
   align-items:center;
   text-align: left;
@@ -24,7 +26,7 @@ Page{
   margin-right: 10px;
 }
 .input_search_view input{
-  height: 40px;
+  height: 60rpx;
   display: inline-block;
   /* margin: 0 auto; */
 }
@@ -32,13 +34,13 @@ Page{
 
 /* 筛选 */
 .cateragy_class{
-  height: 50px;
-  margin-top: 10px;
+  height: 70rpx;
+  margin-top: 20rpx;
   /* background: rebeccapurple; */
 }
 .cateragy_class view{
   float: left;
-  height: 50px;
+  height: 70rpx;
   width: 250rpx;
   align-items: center;
   justify-content: center;
@@ -57,4 +59,18 @@ Page{
   width: 15px;
   height: 15px;
   /* background: red; */
+}
+
+
+/* 商品 */
+.goods_view{
+
+  background: red;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 150rpx;
+  background: lightblue;
 }
