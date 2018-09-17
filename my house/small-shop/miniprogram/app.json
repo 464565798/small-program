@@ -13,7 +13,8 @@
     "pages/czh/index",
     "pages/person/index",
     "pages/desc/index",
-    "pages/movableView/index"
+    "pages/movableView/index",
+    "pages/cateDescGoods/index"
   ],
   "window": {
     "backgroundTextStyle": "white",

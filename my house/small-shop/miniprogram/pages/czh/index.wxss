@@ -27,7 +27,7 @@ height: 100%;
 }
 .cate_view{
   background: lightgray;
-  color: red;
+  color: black;
 }
 
 
@@ -66,5 +66,25 @@ height: 100%;
   right: 0px;
   bottom: 0px;
   text-align: center;
-
+  font-size: 15px;
+}
+.cate_good_text_view{
+  width: 260rpx;
+  height: 40px;
+  margin-top: 10rpx;
+  margin-left: 8rpx;
+  border: 1rpx solid lightgray;
+  border-radius: 5rpx;
+  float: left;
+  position: relative;
+  justify-content:center; 
+  align-items:center;
+  display:flex;
+  background: lightcyan;
+  font-size: 15px;
+}
+.cate_good_text_view text{
+  display: block;
+  position: absolute;
+  text-align: center;
 }

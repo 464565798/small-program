@@ -15,9 +15,14 @@
 </view>
 <view class='right_descgoods'>
   <scroll-view>
-    <view wx:for='{{cate_goods}}' wx:key='{{item.cate_goods_id}}' class='cate_good_view' bindtap='tapDescCategoods' data-categoodsid='{{item.cate_goods_id}}'>
-      <image wx:if='{{item.image}}' src='{{item.image}}' mode='scaleToFill'></image>
+    <block wx:for='{{cate_goods}}' wx:key='{{item.cate_goods_id}}'>
+    <view wx:if='{{item.image}}' class='cate_good_view' bindtap='tapDescCategoods' data-categoodsid='{{item.cate_goods_id}}'>
+      <image src='{{item.image}}' mode='scaleToFill'></image>
       <text>{{item.name}}</text>
     </view>
+    <view wx:else class='cate_good_text_view' bindtap='tapDescCategoods' data-categoodsid='{{item.cate_goods_id}}'>
+      <text>{{item.name}}</text>
+    </view>
+    </block>
   </scroll-view>
 </view>

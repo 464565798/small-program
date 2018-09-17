@@ -86,7 +86,7 @@ Page({
       case 3:
         cate_goods = [{ name: '科颜氏', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '欧莱雅', desc: '力士', image: '../../resouce/common/shop_common_05.jpg', cate_goods_id: 1 }, { name: '迪奥', desc: '双立人', image: '../../resouce/common/shop_common_06.jpg', cate_goods_id: 2 }, { name: '安其拉', desc: '心相印', image: '../../resouce/common/shop_common_07.jpg', cate_goods_id: 4 }]; break;
       case 4:
-        cate_goods = [{ name: '枸杞子', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '脑白金', desc: '力士', image: '../../resouce/common/shop_common_05.jpg', cate_goods_id: 1 }, { name: '太太', desc: '双立人', image: '../../resouce/common/shop_common_06.jpg', cate_goods_id: 2 }, { name: '心尘变', desc: '心相印', image: '../../resouce/common/shop_common_07.jpg', cate_goods_id: 4 }]; break;
+        cate_goods = [{ name: '枸杞子', desc: '飘柔',  cate_goods_id: 0 }, { name: '脑白金', desc: '力士',  cate_goods_id: 1 }, { name: '太太', desc: '双立人', cate_goods_id: 2 }, { name: '心尘变', desc: '心相印',  cate_goods_id: 4 }]; break;
     }
     console.log(cu_id);
     this.setData({
@@ -97,5 +97,8 @@ Page({
   tapDescCategoods : function(e){
     let cate_good_id = e.currentTarget.dataset.categoodsid;
     console.log(cate_good_id);
+    wx.navigateTo({
+      url: '../cateDescGoods/index?cate_good_id=' + cate_good_id,
+    })
   }
 })
