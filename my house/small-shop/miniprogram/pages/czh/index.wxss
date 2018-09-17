@@ -1,18 +1,58 @@
 
 page{
 height: 100%;
+overflow-x: hidden;
+overflow-y: hidden;
 }
+/* 搜素 */
+
+.top_search{
+  width: 750rpx;
+  margin-bottom: 15rpx;
+}
+.input_search_view{
+  margin: 0 auto;
+  width: 650rpx;
+  height: 60rpx;
+  padding-left: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 7px;
+  font-size: 15px;
+  margin-top: 10rpx;
+  justify-content:center; 
+  align-items:center;
+  text-align: left;
+  display:flex;
+}
+.input_search_view image{
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.input_search_view input{
+  height: 60rpx;
+  display: inline-block;
+  /* margin: 0 auto; */
+}
+
+
 /* //左分类 */
 .left_categrogy{
   width: 199rpx;
-  height: 100%;
+  
+  overflow-y: scroll;
+  position: absolute;
+  top: 90rpx;
+  bottom: 0rpx;
+  left: 0rpx;
   float: left;
   border-right: 1px solid lightgrey;
 }
+::-webkit-scrollbar{display: none;}
 .cate_view_select,.cate_view{
   width: 199rpx;
   float: left;
-  margin-top: 5rpx;
+  margin-bottom: 5rpx;
   height: 50px;
   font-size: 15px;
   justify-content:center; 
@@ -31,7 +71,13 @@ height: 100%;
 }
 
 
-
+/* 分割线 */
+.sepa_lab{
+  width: 100%;
+  margin-top: 15rpx;
+  height: 2rpx;
+  background: lightgray
+}
 
 
 
@@ -42,8 +88,12 @@ height: 100%;
 .right_descgoods{
   /* background: red; */
   width: 550rpx;
-  height: 100%;
-  float: left;
+  overflow-y: scroll;
+  /* float: left; */
+  position: absolute;
+  top: 90rpx;
+  bottom: 0rpx;
+  right: 0rpx;
 }
 
 .cate_good_view{

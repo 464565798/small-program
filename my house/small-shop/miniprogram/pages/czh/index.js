@@ -100,5 +100,10 @@ Page({
     wx.navigateTo({
       url: '../cateDescGoods/index?cate_good_id=' + cate_good_id,
     })
+  },
+  goSearch : function(){
+    wx.navigateTo({
+      url: '../cateDescGoods/index',
+    })
   }
 })

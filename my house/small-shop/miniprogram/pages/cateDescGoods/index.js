@@ -12,9 +12,11 @@ Page({
    */
   onLoad: function (options) {
     let cate_good_id = options.cate_good_id;
-    this.setData({
-      cate_id : cate_good_id
-    });
+    if(cate_good_id){
+      this.setData({
+        cate_id : cate_good_id
+      });
+    }
   },
 
   /**
@@ -64,5 +66,15 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  searchGoods : function(e){
+    console.log(e);
+    let text = e.detail.value;
+    
+    if(!text||text == ''){
+      wx.showToast({
+        title: '请输入搜索内容'
+      },2000)    
+    }
   }
 })

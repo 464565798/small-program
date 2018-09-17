@@ -1,4 +1,12 @@
 <!-- 分类区 -->
+
+<view class='top_search'>
+  <view class='input_search_view'>
+    <image src='../../resouce/search.png'></image>
+    <input type='text' placeholder='请输入搜索商品的名称' disabled='{{true}}' bindtap='goSearch'></input>
+  </view>
+</view>
+<view class='sepa_lab'></view>
 <view class='left_categrogy'>
   <scroll-view>
     <block wx:for='{{cateragy}}' wx:key='{{item.cate_id}}'>

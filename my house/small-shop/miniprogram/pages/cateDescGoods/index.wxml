@@ -1,7 +1,21 @@
-ID为{{cate_id}}的分类描述
-<view class='top_search'>
-  <input type='text' placeholder='请输入搜索商品的名称'></input>
-</view>
-<view>
 
+<view class='top_search'>
+  <view class='input_search_view'>
+    <image src='../../resouce/search.png'></image>
+    <input type='text' placeholder='请输入搜索商品的名称' confirm-type='search' bindconfirm='searchGoods'></input>
+  </view>
+</view>
+<view class='cateragy_class'>
+  <view>
+    <text>综合排序</text>
+    <image src='../../resouce/arrow_down.png'></image>
+  </view>
+  <view>
+    <text>按销量</text>
+    <image src='../../resouce/arrow_down.png'></image>
+  </view>
+  <view>
+    <text>发布时间</text>
+    <image src='../../resouce/arrow_down.png'></image>
+  </view>
 </view>

@@ -4,12 +4,57 @@ Page{
 .top_search{
   width: 750rpx;
 }
-.top_search input{
+.input_search_view{
   margin: 0 auto;
   width: 650rpx;
+  height: 40px;
   padding-left: 10px;
   border: 1px solid lightgrey;
   border-radius: 7px;
-  text-align: center;
   font-size: 15px;
+  margin-top: 15px;
+  justify-content:center; 
+  align-items:center;
+  text-align: left;
+  display:flex;
+}
+.input_search_view image{
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.input_search_view input{
+  height: 40px;
+  display: inline-block;
+  /* margin: 0 auto; */
+}
+
+
+/* 筛选 */
+.cateragy_class{
+  height: 50px;
+  margin-top: 10px;
+  /* background: rebeccapurple; */
+}
+.cateragy_class view{
+  float: left;
+  height: 50px;
+  width: 250rpx;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  font-size: 12px;
+  display: flex;
+  background: lightcyan;
+}
+.cateragy_class view text{
+
+  text-align: center;
+  /* background: red; */
+}
+.cateragy_class view image{
+
+  width: 15px;
+  height: 15px;
+  /* background: red; */
 }
