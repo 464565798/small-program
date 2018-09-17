@@ -1,1 +1,7 @@
 ID为{{cate_id}}的分类描述
+<view class='top_search'>
+  <input type='text' placeholder='请输入搜索商品的名称'></input>
+</view>
+<view>
+
+</view>

@@ -1,0 +1,15 @@
+Page{
+
+}
+.top_search{
+  width: 750rpx;
+}
+.top_search input{
+  margin: 0 auto;
+  width: 650rpx;
+  padding-left: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 15px;
+}
