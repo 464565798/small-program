@@ -17,7 +17,14 @@
 <template is='cycleView' data="{{swiperItemImage:cycleImageData}}"></template>
 
 <scroll-view class='goods_table' scroll-y enable-back-to-top="{{true}}">
-
+<!-- 模块 -->
+<view class='module_view'>
+  <view wx:for='{{module_list}}' wx:key='module' class='module' bindtap='tapModule' data-module-id='{{item.module_id}}'>
+    <image src='{{item.module_image}}' mode='scaleToFill'></image>
+    <text>{{item.module_name}}</text>
+  </view>
+  <view style='clear:both;'></view>
+</view>
 
 <!-- 综合服务区 -->
 <view class='goods_title'>综合服务区</view>

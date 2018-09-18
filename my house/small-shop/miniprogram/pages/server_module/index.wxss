@@ -14,36 +14,40 @@
   float: right;
 } */
 .left_server_main,.left_server_top,.left_server_bottom{
-  width: 360rpx;
-  margin-right: 10rpx;
+  width: 372.5rpx;
   float: right;
 }
+.left_server_top,.left_server_bottom{
+  margin-right: 5rpx;
+}
 .right_server_main,.right_server_top,.right_server_bottom{
-  width: 360rpx;
-  margin-left: 10rpx;
+  width: 372.5rpx;
   float: left;
 }
+.right_server_top,.right_server_bottom{
+  margin-left: 5rpx;
+}
 .right_server_main image,.left_server_main image{
-  width: 360rpx;
-  height: 360rpx;
+  width: 372.5rpx;
+  height: 372.5rpx;
   display: block;
 }
 
 .right_server_top image,.right_server_bottom image,.left_server_top image,.left_server_bottom image{
-  width: 360rpx;
-  height: 150rpx;
+  width: 372.5rpx;
+  height: 159rpx;
   display: block;
 }
-
+.left_server_bottom{
+  margin-top: 7rpx;
+}
 .right_server_bottom{
-  margin-top: 10rpx;
+  margin-top: 7rpx;
 }
 .small_tip{
   height: 50rpx;
-  width: 360rpx;
-  /* float:none; */
   clear: both;
-  margin-left: 0px;
-  margin-right: 0px;
-  background: lightgray;
+  font-size: 12px;
+  padding-left: 10px;
+  background: white;
 }

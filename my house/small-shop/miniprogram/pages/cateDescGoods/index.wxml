@@ -7,20 +7,33 @@
 </view>
 
 <view class='cateragy_class'>
-  <view>
+  <view wx:if='{{current_sort_index==0}}' class='selectedSort' bindtap='changeSort' data-module-id='0'>
     <text>综合排序</text>
-    <image src='../../resouce/arrow_down.png'></image>
+    <!-- <image src='../../resouce/arrow_down.png'></image> -->
   </view>
-  <view>
+  <view wx:else class='normalSort' bindtap='changeSort' data-module-id='0'>
+    <text>综合排序</text>
+  </view>
+  <view wx:if='{{current_sort_index==1}}' class='selectedSort' bindtap='changeSort' data-module-id='1'>
     <text>按销量</text>
-    <image src='../../resouce/arrow_down.png'></image>
   </view>
-  <view>
+  <view wx:else class='normalSort' bindtap='changeSort' data-module-id='1'>
+    <text>按销量</text>
+
+  </view>
+  <view wx:if='{{current_sort_index==2}}' class='selectedSort' bindtap='changeSort' data-module-id='2'>
     <text>发布时间</text>
-    <image src='../../resouce/arrow_down.png'></image>
+
+  </view>
+  <view wx:else class='normalSort' bindtap='changeSort' data-module-id='2'>
+    <text>发布时间</text>
+
+  </view>
+  <view >
+    <image src='../../resouce/fenlei.png'></image>
   </view>
 </view>
 <view class='goods_view'>
-  
-
+    <import src='../common_good/index.wxml'/>
+  <template is='common_goods' data="{{all_goods:goods_list,col1:col1,col2:col2}}"></template>
 </view>

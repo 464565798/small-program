@@ -10,12 +10,12 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     cycleImageData: [{ url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg', target: 'goods_detail?goodId=123' }, { url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg', target: 'goods_detail?goodId=456' }, { url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg', target: 'goods_detail?goodId=789'}],
-
     col1: [],
     col2: [],
     colWidth: 0,
     col1Height: 0,
     col2Height: 0,
+    module_list: [{ module_name: '分类', module_id: 0, module_image: '../../resouce/module/cate.png' }, { module_name: '购物车', module_id: 2, module_image: '../../resouce/module/buy_car.png' }, { module_name: '新货', module_id: 3, module_image: '../../resouce/module/new_goods.png' }, { module_name: '购物券', module_id: 4, module_image: '../../resouce/module/noun.png' }, { module_name: '秒杀', module_id: 5, module_image: '../../resouce/module/clark.png' }, { module_name: '红包', module_id: 6, module_image: '../../resouce/module/redbao.png' }, { module_name: '优惠', module_id: 7, module_image: '../../resouce/module/jifen.png' }, { module_name: '签到', module_id: 0, module_image: '../../resouce/module/signa.png' }]
   },
   
   //轮播跳转
@@ -123,5 +123,10 @@ Page({
     wx.navigateTo({
       url: '../desc/index?goodId=' + e.currentTarget.id,
     })
+  },
+  //点击module
+  tapModule : function(e){
+    let module_id = e.currentTarget.dataset.moduleId;
+    console.log(module_id);
   }
 })

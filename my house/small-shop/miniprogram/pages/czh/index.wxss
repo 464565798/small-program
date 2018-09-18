@@ -97,16 +97,16 @@ overflow-y: hidden;
 }
 
 .cate_good_view{
-  width: 260rpx;
-   height: 260rpx;
+  width: 170rpx;
+   height: 170rpx;
   margin-left: 10rpx;
   margin-bottom: 10rpx;
   float: left;
   position: relative;
 }
 .cate_good_view image{
-  width: 260rpx;
-  height: 260rpx;
+  width: 170rpx;
+  height: 170rpx;
   display: block;
 }
 .cate_good_view text{
@@ -119,7 +119,7 @@ overflow-y: hidden;
   font-size: 15px;
 }
 .cate_good_text_view{
-  width: 260rpx;
+  width: 170rpx;
   height: 40px;
   margin-top: 10rpx;
   margin-left: 8rpx;
@@ -130,7 +130,7 @@ overflow-y: hidden;
   justify-content:center; 
   align-items:center;
   display:flex;
-  background: lightcyan;
+  background: lightblue;
   font-size: 15px;
 }
 .cate_good_text_view text{

@@ -12,7 +12,7 @@
     <image  src='{{server_goods[1].image}}' mode='scaleToFill'>
       
     </image>
-    <view class='small_tip'>{{server_goods[1].name}}</view>
+    <view class='small_tip'>hahah\n{{server_goods[1].name}}</view>
   
   </view>
   <view wx:if='{{server_goods.length>2}}' class='left_server_bottom'>

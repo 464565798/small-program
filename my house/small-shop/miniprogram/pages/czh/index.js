@@ -5,7 +5,7 @@ Page({
    */
   data: {
     cateragy:[{cate_name:'生活用品',cate_id:0},{cate_name:'美味食品',cate_id:1},{cate_name: '家具材料',cate_id : 2},{cate_name:'化妆用品',cate_id: 3},{cate_name: '保健用品',cate_id: 4}],
-    cate_goods: [{ name: '沐浴露', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '洗发水', desc: '力士', image: '../../resouce/common/shop_common_05.jpg', cate_goods_id: 1 }, { name: '厨具', desc: '双立人', image: '../../resouce/common/shop_common_06.jpg', cate_goods_id: 2 }, { name: '卫生纸', desc: '心相印', image: '../../resouce/common/shop_common_07.jpg', cate_goods_id: 4 }],
+    cate_goods: [{ name: '沐浴露', desc: '飘柔', image: '../../resouce/goods/swish.jpg', cate_goods_id: 0 }, { name: '洗发水', desc: '力士', image: '../../resouce/goods/xiyiji.jpg', cate_goods_id: 1 }, { name: '厨具', desc: '双立人', image: '../../resouce/goods/waitao.jpg', cate_goods_id: 2 }, { name: '卫生纸', desc: '心相印', image: '../../resouce/goods/touying.jpg', cate_goods_id: 4 }],
     current_id : null,
     
   },

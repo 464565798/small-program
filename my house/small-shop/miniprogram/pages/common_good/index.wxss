@@ -1,35 +1,60 @@
-.common_goods{
+page{
+  overflow-x: hidden;
+}
 
-   width: 370rpx;
+.common_goods_left{
+  width: 372.5rpx;
   /* flex-direction:row;
   display: flex; */
-float: left;
+  float: left;
+}
+.common_goods_right{
+  width: 372.5rpx;
+  margin-left: 5rpx;
+  /* flex-direction:row;
+  display: flex; */
+  float: left;
 }
 .common_goods_detail{
-  width: 360rpx;
+  width: 372.5rpx;
   /* height: 450rpx; */
   /* height: 300px; */
   /* margin-right: 10rpx; */
-  margin-bottom: 10rpx;
-  margin-left: 10rpx;
+  margin-bottom: 4rpx;
+  /* margin-left: 10rpx; */
   /* padding: 5px; */
   overflow: hidden;
+  font-size: 13px;
   float: left;
-  text-align: center;
+  /* text-align: center; */
 
 } 
 .common_goods_detail image{
-display: block;
-  width: 360rpx;
+  display: block;
+  width: 372.5rpx;
   /* height: 360rpx; */
 
 }
-.common_goods_detail_text{
-  color: blue;
-  
+.common_goods_detail_text_desc,.common_goods_detail_text_price{
+  margin-left: 10px;
+  color: black;
+  line-height: 20px;
+  display: block;
+
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+
+}
+.common_goods_detail_text_price{
+  color: red;
 }
 .common_goods_price{
-  background: lightgray;
+  background: white;
 }
 .each{
   color: red;
