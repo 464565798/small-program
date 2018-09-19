@@ -29,11 +29,24 @@
     <text>发布时间</text>
 
   </view>
-  <view >
+  <view bindtap='changeGoodsStyle'>
     <image src='../../resouce/fenlei.png'></image>
   </view>
 </view>
 <view class='goods_view'>
+  <block wx:if='{{isBlockStyle}}'>
     <import src='../common_good/index.wxml'/>
-  <template is='common_goods' data="{{all_goods:goods_list,col1:col1,col2:col2}}"></template>
+    <template is='common_goods' data="{{all_goods:goods_list,col1:col1,col2:col2}}"></template>
+  </block>
+  <block wx:else>
+    <scroll-view>
+      <view wx:for='{{goods_list}}' wx:key='{{item.id}}' class='rowGoodsView'  data-goods-id='{{item.id}}' bindtap='selectRowGoodsAction'>
+        <image src='{{item.image}}' mode='scaleToFill'></image>
+        <view class='titleView'>{{item.desc}}</view>
+        <view class='priceView'>￥{{item.price}}</view>
+        <view class='shopName'>{{item.shopName}}</view>
+        <text></text>        
+      </view>
+    </scroll-view>
+  </block>
 </view>

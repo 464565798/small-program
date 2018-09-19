@@ -40,14 +40,15 @@ page{
 /* 分类标题 */
 .goods_title{
 
+  font-size: 15px;
   padding-left: 15px;
   text-align: left;
-  color: red;
+  color: black;
   font-weight: 17px;
   background: white;
   width: 100%;
   margin-top: 1px;
-  margin-bottom: 1px;work
+  margin-bottom: 1px;
 }
 /* 商品外层view */
 

@@ -1,10 +1,10 @@
 <!-- 推荐商品瀑布流 -->
 <template name='common_goods'>
   <view style="display:none">
-   <image wx:for="{{all_goods}}" wx:key='{{index-item.image-item.index}}' id="{{item.id}}" src="{{item.image}}"   bindload="onImageLoad"></image>
+   <image wx:for="{{all_goods}}" wx:key='{{item.id}}' id="{{item.id}}" src="{{item.image}}"   bindload="onImageLoad"></image>
   </view>
   <view class='common_goods_left'>
-    <view wx:for='{{col1}}'  id='{{item.id}}' class='common_goods_detail' bindload="onImageLoad" bindtap='selectDescAction'>
+    <view wx:for='{{col1}}' wx:key='{{item.id}}' id='{{item.id}}' class='common_goods_detail' bindload="onImageLoad" bindtap='selectDescAction'>
       <image src='{{item.image}}' mode='widthFix'>图片</image>
       <view class='common_goods_price'>
       <text selectable='{{false}}' class='common_goods_detail_text_desc'>{{item.desc}}</text>
@@ -16,7 +16,7 @@
     <view class='common_goods_footer'></view>
   </view>
   <view class='common_goods_right'>
-    <view wx:for='{{col2}}'  id='{{item.id}}' class='common_goods_detail' bindload="onImageLoad" bindtap='selectDescAction'>
+    <view wx:for='{{col2}}' wx:key='{{item.id}}' id='{{item.id}}' class='common_goods_detail' bindload="onImageLoad" bindtap='selectDescAction'>
       <image src='{{item.image}}' mode='widthFix'>图片</image>
       <view class='common_goods_price'>
       <text selectable='{{false}}' class='common_goods_detail_text_desc'>{{item.desc}}</text>

@@ -51,18 +51,10 @@ page{
 
 }
 .common_goods_detail_text_price{
-  color: red;
+  color: rgb(188, 75, 89);
 }
 .common_goods_price{
   background: white;
-}
-.each{
-  color: red;
-}
-.price{
-  /* position: absolute;
-  right: 50px; */
-  color: red;
 }
 .common_goods_footer{
   height: 0px;

@@ -2,24 +2,33 @@
 <!-- //左服务区 -->
 <template name='left_server'>
   <view class='left_server'>
-  <view wx:if='{{server_goods.length>0}}' class='left_server_main'>
+  <view wx:if='{{server_goods.length>0}}' class='left_server_main' bindtap='tapServerGoods' data-goods-id='{{server_goods[0].id}}'>
     <image src='{{server_goods[0].image}}' mode='scaleToFill'>
       
     </image>
-    <view class='small_tip'>{{server_goods[0].name}}</view>
+    <view class='small_tip'>
+      <text class='desc'>{{server_goods[0].desc}}</text>
+      <text class='price'>￥{{server_goods[0].price}}</text>
+    </view>
   </view>
-  <view wx:if='{{server_goods.length>1}}' class='left_server_top'>
+  <view wx:if='{{server_goods.length>1}}' class='left_server_top' bindtap='tapServerGoods' data-goods-id='{{server_goods[1].id}}'>
     <image  src='{{server_goods[1].image}}' mode='scaleToFill'>
       
     </image>
-    <view class='small_tip'>hahah\n{{server_goods[1].name}}</view>
+    <view class='small_tip'>
+      <text class='desc'>{{server_goods[1].desc}}</text>
+      <text class='price'>￥{{server_goods[1].price}}</text>
+    </view>
   
   </view>
-  <view wx:if='{{server_goods.length>2}}' class='left_server_bottom'>
+  <view wx:if='{{server_goods.length>2}}' class='left_server_bottom' bindtap='tapServerGoods'  data-goods-id='{{server_goods[2].id}}'>
     <image  src='{{server_goods[2].image}}' mode='scaleToFill'>
       
     </image>
-    <view class='small_tip'>{{server_goods[2].name}}</view>
+    <view class='small_tip'>
+      <text class='desc'>{{server_goods[2].desc}}</text>
+      <text class='price'>￥{{server_goods[2].price}}</text>
+    </view>
   </view>
   <view style='height:0px;clear:both;'></view>
 </view>
@@ -27,24 +36,33 @@
 <!-- 右服务区模板 -->
 <template name='right_server'>
 <view class='right_server'>
-  <view wx:if='{{server_goods.length>0}}' class='right_server_main'>
+  <view wx:if='{{server_goods.length>0}}' class='right_server_main' bindtap='tapServerGoods' data-goods-id='{{server_goods[0].id}}'>
     <image src='{{server_goods[0].image}}' mode='scaleToFill'>
       
     </image>
-    <view class='small_tip'>{{server_goods[0].name}}</view>
+    <view class='small_tip'>
+      <text class='desc'>{{server_goods[0].desc}}</text>
+      <text class='price'>￥{{server_goods[0].price}}</text>
+    </view>
   </view>
-  <view wx:if='{{server_goods.length>1}}' class='right_server_top'>
+  <view wx:if='{{server_goods.length>1}}' class='right_server_top' bindtap='tapServerGoods' data-goods-id='{{server_goods[1].id}}'> 
     <image  src='{{server_goods[1].image}}' mode='scaleToFill'>
       
     </image>
-    <view class='small_tip'>{{server_goods[1].name}}</view>
+    <view class='small_tip'>
+      <text class='desc'>{{server_goods[1].desc}}</text>
+      <text class='price'>￥{{server_goods[1].price}}</text>
+    </view>
   
   </view>
-  <view wx:if='{{server_goods.length>2}}' class='right_server_bottom'>
+  <view wx:if='{{server_goods.length>2}}' class='right_server_bottom' bindtap='tapServerGoods' data-goods-id='{{server_goods[2].id}}'>
     <image  src='{{server_goods[2].image}}' mode='scaleToFill'>
       
     </image>
-    <view class='small_tip'>{{server_goods[2].name}}</view>
+    <view class='small_tip'>
+    <text class='desc'>{{server_goods[2].desc}}</text>
+    <text class='price'>￥{{server_goods[2].price}}</text>
+    </view>
   </view>
   <view style='height:0px;clear:both;'></view>
 </view>

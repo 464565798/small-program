@@ -29,7 +29,7 @@
 }
 .right_server_main image,.left_server_main image{
   width: 372.5rpx;
-  height: 372.5rpx;
+  height: 402.5rpx;
   display: block;
 }
 
@@ -45,9 +45,26 @@
   margin-top: 7rpx;
 }
 .small_tip{
-  height: 50rpx;
+  height: 80rpx;
   clear: both;
   font-size: 12px;
   padding-left: 10px;
   background: white;
+}
+.small_tip .desc{
+  color: black;
+  height: 40rpx;
+  font-size: 12px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+.small_tip .price{
+  color: rgb(188, 75, 89);
+  font-size: 14px;
+  height: 40rpx;
 }

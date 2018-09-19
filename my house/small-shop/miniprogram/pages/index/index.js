@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    goods: [{ name: '沐浴露', price: 100, id: 5, image: '../../resouce/common/shop_common_01.jpg' }, { name: '袜子', price: 130, id: 10, image: '../../resouce/common/shop_common_06.jpg' }, { name: '袜子', price: 130, id: 6, image: '../../resouce/common/shop_common_02.gif' }, { name: '禅语', price: 99, id: 7, image: '../../resouce/common/shop_common_03.jpg' }, { name: '花露', price: 10, id: 8, image: '../../resouce/common/shop_common_04.jpg' }, { name: '沐浴露', price: 100, id: 9, image: '../../resouce/common/shop_common_05.jpg' }, { name: '禅语', price: 99, id: 11, image: '../../resouce/common/shop_common_07.jpg' }],
+    goods: [{ name: '紫金茶壶', desc: '德国进口茶具', price: 100, id: 885, image: '../../resouce/goods/chahu.jpg', shopName: '张迪旗舰店' }, { name: '茶壶', desc: '英国进口茶具', price: 130, id: 1088, image: '../../resouce/goods/fruit.jpg', shopName: '张迪旗舰店' }, { name: '车厘子', desc: '自产水果', price: 130, id: 88, image: '../../resouce/goods/ping.jpg', shopName: '张迪旗舰店' }, { name: '月饼', desc: '月饼 祝福4只', price: 99, id: 787, image: '../../resouce/goods/swish.jpg', shopName: '张迪旗舰店' }, { name: '洗衣机', desc: '德国进口茶具', price: 10, id: 778, image: '../../resouce/goods/chabei.jpg', shopName: '张迪旗舰店' }],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -15,7 +15,7 @@ Page({
     colWidth: 0,
     col1Height: 0,
     col2Height: 0,
-    module_list: [{ module_name: '分类', module_id: 0, module_image: '../../resouce/module/cate.png' }, { module_name: '购物车', module_id: 2, module_image: '../../resouce/module/buy_car.png' }, { module_name: '新货', module_id: 3, module_image: '../../resouce/module/new_goods.png' }, { module_name: '购物券', module_id: 4, module_image: '../../resouce/module/noun.png' }, { module_name: '秒杀', module_id: 5, module_image: '../../resouce/module/clark.png' }, { module_name: '红包', module_id: 6, module_image: '../../resouce/module/redbao.png' }, { module_name: '优惠', module_id: 7, module_image: '../../resouce/module/jifen.png' }, { module_name: '签到', module_id: 0, module_image: '../../resouce/module/signa.png' }]
+    module_list: [{ module_name: '分类', module_id: 1, module_image: '../../resouce/module/cate.png' }, { module_name: '购物车', module_id: 2, module_image: '../../resouce/module/buy_car.png' }, { module_name: '新货', module_id: 3, module_image: '../../resouce/module/new_goods.png' }, { module_name: '购物券', module_id: 4, module_image: '../../resouce/module/noun.png' }, { module_name: '秒杀', module_id: 5, module_image: '../../resouce/module/clark.png' }, { module_name: '红包', module_id: 6, module_image: '../../resouce/module/redbao.png' }, { module_name: '优惠', module_id: 7, module_image: '../../resouce/module/jifen.png' }, { module_name: '签到', module_id: 8, module_image: '../../resouce/module/signa.png' }]
   },
   
   //轮播跳转
@@ -127,6 +127,23 @@ Page({
   //点击module
   tapModule : function(e){
     let module_id = e.currentTarget.dataset.moduleId;
-    console.log(module_id);
+    let targetUrl = {
+      1:'',   //分类
+      2:'',   //购物车
+      3:'',   //新货
+      4:'',   //购物券
+      5:'',   //秒杀
+      6:'',   //红包
+      7:'',   //优惠
+      8:'',   //签到
+    };
+
+  },
+  //点击综合服务或热销品牌
+  tapServerGoods : function(e){
+    let goodsId = e.currentTarget.dataset.goodsId;
+    wx.navigateTo({
+      url: '../desc/index?goodId=' + goodsId,
+    })
   }
 })

@@ -1,2 +1,25 @@
-个人中心
-<button bindtap='bindtap'>点击</button>
+ <image src='../../resouce/person_bg.jpeg' class='bg' mode='scaleToFill'></image>
+<view class='topView'>
+ 
+  <view class='avatar'>
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class='nameTitle'>
+    <open-data type="userNickName"></open-data>
+  </view>
+  <view class='tipView'>
+    <view>
+      <image src='../../resouce/module/redbao.png'></image>
+      <text>优惠券</text>
+    </view>
+    <view>
+      <image src='../../resouce/module/noun.png'></image>
+      <text>红包</text>
+    </view>
+    <view>
+      <image src='../../resouce/module/signa.png'></image>
+      <text>签到</text>
+    </view>
+    <view style='clear:both;'></view>
+  </view>
+</view>
