@@ -1,1 +1,20 @@
-<view>商品编号{{goodsId}}详情</view>
+
+<swiper autoplay='{{false}}' indicator-dots='{{false}}' class='topView'>
+      <block wx:for='{{goods_desc.image}}'  wx:key='*this'>
+      <swiper-item>
+        <view class='imageSupview'>
+          <image src='{{item}}' class='slide-image'  bindload='loadImage' id='{{index}}' style='width:{{imagesScale[index].width}}rpx;height:{{imagesScale[index].height}}rpx;display: block;margin: 0 auto;'/>
+        </view>
+      </swiper-item>
+      </block>
+</swiper>
+<view class='titleView'>
+  <view><text style='color:rgb(188, 75, 89);font-size:17px;'>￥{{goods_desc.price}}</text></view>
+  <view class='title'><text>￥{{goods_desc.title}}</text></view>
+  <view class='bottmDesc'>
+  <text class='postalTip'>快递：{{goods_desc.postalTip}}元</text>
+  <text class='saleNum'>月销量{{goods_desc.saleNum}}笔</text>
+  <text class='address'>{{goods_desc.saleAddress}}</text>
+  </view>
+</view>
+

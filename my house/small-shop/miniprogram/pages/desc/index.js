@@ -1,210 +1,126 @@
-// var colorArray = ['black','red','green'];
 Page({
-  onPageScroll: function (e) {
-    console.log(e);
-    console.log(this.route);
-  },
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    goodsId:'',
-    animationData: {},
-    imagePath: '',
-    array : [1,2,4,5],
-    imageData: { pathUrl:'../../resouce/icon_chezhihui_H.png'},
-    objectArray: [
-      { id: 5, unique: 'unique_5' },
-      { id: 4, unique: 'unique_4' },
-      { id: 3, unique: 'unique_3' },
-      { id: 2, unique: 'unique_2' },
-      { id: 1, unique: 'unique_1' },
-      { id: 0, unique: 'unique_0' },
-    ],
-    currentColor : 'black',
-    numberArray: [1, 2, 3, 4],
-
-
-
-  },
-  onLoad : function(options){
-    wx.setNavigationBarTitle({
-      title : '商品详情'
-    });
-    console.log('页面参数'+options.goodId);
-    if(options.goodId){
-      this.setData({
-       goodsId : options.goodId
-       });
-    }
-  },
-  // changeColor : function(){
-  //   // console.log(parseInt(Math.random() * 4));
-  //   this.setData({
-  //     currentColor: colorArray[parseInt(Math.random() * 3)]
-  //   });
-  // },
-  // switch: function (e) {
-  //   const length = this.data.objectArray.length
-  //   for (let i = 0; i < length; ++i) {
-  //     const x = Math.floor(Math.random() * length)
-  //     const y = Math.floor(Math.random() * length)
-  //     const temp = this.data.objectArray[x]
-  //     this.data.objectArray[x] = this.data.objectArray[y]
-  //     this.data.objectArray[y] = temp
-  //   }
-  //   this.setData({
-  //     objectArray: this.data.objectArray
-  //   })
-  // },
-  // addToFront: function (e) {
-  //   const length = this.data.objectArray.length
-  //   this.data.objectArray = [{ id: length, unique: 'unique_' + length }].concat(this.data.objectArray)
-  //   this.setData({
-  //     objectArray: this.data.objectArray
-  //   })
-  // },
-  // addNumberToFront: function (e) {
-  //   this.data.numberArray = [this.data.numberArray.length + 1].concat(this.data.numberArray)
-  //   this.setData({
-  //     numberArray: this.data.numberArray
-  //   })
-  // },
-  onShareAppMessage:function(){
-    console.log('123');
-  },
-  onShow: function () {
-  //   var animation = wx.createAnimation({
-  //     duration: 3000,
-  //     delay : 3000,
-  //     timingFunction: 'ease',
-  //   })
+    goodsId:0,
+    goods_desc: {
+      image: ['../../resouce/goods_desc/goods.jpg','../../resouce/goods/chabei.jpg'], price: 100, title: 'Samsung/三星 GALAXY S8 Plus港版盖乐世s8+全网通4G曲屏智能手机', postalTip:0.00, saleNum:98 ,saleAddress:'自营'},
+    server_desc: [{ image: '', name: '正品保证', detail: '' }, { image: '', name: '极速退款', detail: '' }, { image: '', name: '赠送运险', detail: '' }],
+    discount : {title:'店铺优惠券',item:[]},
+    rank_desc : {selected:false,title:'规格'},
   
-  //   this.animation = animation
-  //   // animation.rotateZ(45).step();
-  //   animation.translate3d(90,90,90).step();
-  //   animation.scale(2,2).step({delay:3000,duration:6000});
-  //   this.setData({
-  //     animationData: animation.export()
-  //   });
-  //   var cav = wx.createCanvasContext(canvasid, this);
-  //   return;
-  //   animation.scale(2, 2).rotate(0).step()
-
-  //   this.setData({
-  //     animationData: animation.export()
-  //   })
-
-  //   setTimeout(function () {
-  //     animation.translate(30,30).step()
-  //     this.setData({
-  //       animationData: animation.export()
-  //     })
-  //   }.bind(this), 1000)
-  // },
-  // rotateAndScale: function () {
-  //   // 旋转同时放大
-  //   this.animation.rotateY(360).scale(1, 1).step()
-  //   this.setData({
-  //     animationData: this.animation.export()
-  //   })
-  // },
-  // rotateThenScale: function () {
-  //   // 先旋转后放大
-  //   this.animation.rotate(45).step()
-  //   this.animation.scale(2, 2).step()
-  //   this.setData({
-  //     animationData: this.animation.export()
-  //   })
-  // },
-  // rotateAndScaleThenTranslate: function () {
-  //   // 先旋转同时放大，然后平移
-  //   this.animation.rotate(45).scale(2, 2).step()
-  //   this.animation.translate(100, 100).step({ duration: 1000 })
-  //   this.setData({
-  //     animationData: this.animation.export()
-  //   })
+    rank_list: {
+        name: '颜色分类', current_list: [
+          { name: '紫色', current_list: [{ name: '4G', code: 11004 }, { name: '8G', code: 11005 }, { name: '16G', code: 11096 }] }, 
+          { name: '黑色', current_list: [{ name: '4G', code: 10004 }, { name: '8G', code: 10005 }, { name: '16G', code: 10096 }, { name: '256G', code: 11099 }] }],
+      },
+    common : {
+      common_num:0,
+      image:'',
+      detail:'很好'
+    },
+    desc_image:[
+      '../../resouce/goods_desc/goods1.jpg', '../../resouce/goods_desc/goods2.jpg', '../../resouce/goods_desc/goods3.jpg', '../../resouce/goods_desc/goods4.jpg', '../../resouce/goods_desc/goods5.jpg', '../../resouce/goods_desc/goods6.jpg', '../../resouce/goods_desc/goods7.jpg','../../resouce/goods_desc/goods8.jpg'
+    ],
+    windowWidth:750,
+    imagesScale: [{ width: 0, height: 0 }, { width: 0, height: 0 }, { width: 0, height: 0}]
   },
-  bindTap : function(){
-    // wx.showShareMenu({
-    //   withShareTicket:false,
-    //   success:result=>{
-    //     console.log(123);
-    //   },
-    //   fail:error=>{
-    //     console.log(456);
-    //   }
-    // })
-    // wx.hideShareMenu({
-    //   complete:function(){
-    //     console.log(123);
-    //   }
-    // })
-    // wx.getShareInfo({
 
-    // })
-    // console.log('desc被点击');
-    // wx.navigateBack({
-      
-    // })
-    // var query = wx.createSelectorQuery().in(this);
-    // query.select('.anima').boundingClientRect(function(res){
-    //   console.log(res);
-    // }).exec()
-    // query.select('.anima').boundingClientRect().exec(function(res){
-    //   res.forEach(function(res){
-    //     console.log(res.width);
-    //   })
-       
-    //  });
-    // console.log(arr);
-    
-    // wx.login({
-    //   success:function(res){
-    //     console.log(res.code);
-    //   }
-    // });
-    // wx.requestPayment({
-    //   'timeStamp': '',
-    //   'nonceStr': '',
-    //   'package': '',
-    //   'signType': 'MD5',
-    //   'paySign': '',
-    //   'success': function (res) {
-    //   },
-    //   'fail': function (res) {
-    //   }
-    // })
-//选择地址
-    // wx.chooseAddress({
-    //   success:res=>{
-    //     console.log(res);
-    //   }
-    // // })
-    // wx.openSetting({
-    //   success:res=>{
-    //     console.log('发起成功');
-    //   }
-    // })
-    // this.setData({
-    //   imagePath: '../../resouce/icon_chezhihui_H.png'
-    // });
-    wx.navigateTo({
-      url: '../movableView/index',
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '商品详情'
+    });
+    console.log('页面参数' + options.goodId);
+    if (options.goodId) {
+      this.setData({
+        goodsId: options.goodId
+      });
+    }
+    let weak_self = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        let ww = res.windowWidth;
+        weak_self.setData({
+          windowWidth : ww
+        });
+
+      },
     })
-
   },
-  // viewLongPress : function(event){
-  //   // if(event.target.id == event.currentTarget.id)
-  //   console.log('长按触发父视图view');
-  // },
-  // longpress : function(event){
-  //   console.log('长按触发');
-  //   console.log(event);
-  // },
-  // touchEnd : function(event){
-  //   console.log('长按结束');
-  //   console.log(event);
-  // },
-  // touchStart: function (event) {
-  //   console.log('长按开始');
-  //   console.log(event);
-  // }
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
+  },
+  loadImage:function(e){
+    let index = e.currentTarget.id;
+    let oriWidth = e.detail.width;
+    let oriHeight = e.detail.height;
+    let scale = oriWidth / oriHeight;
+    let currentScale = this.data.windowWidth/300;
+   
+    var scaleTraget = { width: 0, height :0};
+    if(scale < currentScale){
+      scaleTraget.height = 300;
+      scaleTraget.width = 300 * scale;
+    }else{
+      scaleTraget.height = this.data.windowWidth /scale;
+      scaleTraget.width = this.data.windowWidth;
+    }
+    this.data.imagesScale[index] = scaleTraget;
+    console.log(this.data.imagesScale);
+    this.setData({
+      imagesScale : this.data.imagesScale
+    });
+
+  }
 })

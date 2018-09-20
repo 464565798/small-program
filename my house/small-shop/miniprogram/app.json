@@ -14,7 +14,17 @@
     "pages/person/index",
     "pages/desc/index",
     "pages/movableView/index",
-    "pages/cateDescGoods/index"
+    "pages/cateDescGoods/index",
+
+    "pages/person/property/discount/index",
+    "pages/person/property/money/index",
+    "pages/person/property/signal/index",
+    "pages/person/buyCar/index",
+    "pages/person/myCollection/index",
+    "pages/person/order/index",
+    "pages/person/address/index"
+
+
   ],
   "window": {
     "backgroundTextStyle": "white",
@@ -39,7 +49,7 @@
       },
       {
         "pagePath": "pages/czh/index",
-        "text": "商品",
+        "text": "分类",
         "iconPath": "resouce/icon_chezhihui_N.png",
         "selectedIconPath": "resouce/icon_chezhihui_H.png"
       },

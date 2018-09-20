@@ -8,18 +8,56 @@
     <open-data type="userNickName"></open-data>
   </view>
   <view class='tipView'>
-    <view>
+    <view bindtap='goAction' data-target-url='collection'>
       <image src='../../resouce/module/redbao.png'></image>
-      <text>优惠券</text>
+      <text>我的收藏</text>
     </view>
-    <view>
-      <image src='../../resouce/module/noun.png'></image>
-      <text>红包</text>
+    <view bindtap='goAction' data-target-url='buycar'>
+      <image src='../../resouce/person/buycar.png'></image>
+      <text>购物车</text>
     </view>
-    <view>
+    <view bindtap='goAction' data-target-url='signa'>
       <image src='../../resouce/module/signa.png'></image>
       <text>签到</text>
     </view>
     <view style='clear:both;'></view>
+  </view>
+</view>
+
+<view class='myOrder'>
+  <view class='title' bindtap='goTargetUrl' data-target-url='order/index' data-index='0'>
+    <image src='../../resouce/person/order.png' mode='scaleToFill'></image>
+    <text class='leftTitle'>我的订单</text>
+    <text class='rightTitle'>查看全部订单 ></text>
+  </view>
+  <view class='order_list'>
+    <view wx:for='{{orderList}}' wx:key='{{list}}'>
+      <view class='order' bindtap='goTargetUrl' data-target-url='{{item.targetUrl}}' data-index='{{index}}'>
+        <image src='{{item.image}}' mode='scaleToFill'></image>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='myOrder'>
+  <view class='title' bindtap='goTargetUrl' data-target-url='property/money/index' data-index='0'>
+    <image src='../../resouce/person/myProperty.png' mode='scaleToFill'></image>
+    <text class='leftTitle'>我的财产</text>
+    <text class='rightTitle'>查看全部财产 ></text>
+  </view>
+  <view class='order_list'>
+    <view wx:for='{{propertyList}}' wx:key='{{list}}'>
+      <view class='order' bindtap='goTargetUrl' data-target-url='{{item.targetUrl}}' data-index='{{index+1}}'>
+        <image src='{{item.image}}' mode='scaleToFill'></image>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='receiveAddress'>
+  <view class='title' bindtap='goAddress'>
+    <image src='../../resouce/person/hadReceive.png' mode='scaleToFill'></image>
+    <text class='leftTitle'>我的收货地址</text>
+    <text class='rightTitle'> ></text>
   </view>
 </view>

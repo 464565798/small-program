@@ -7,6 +7,7 @@ position: relative;
 ::-webkit-scrollbar{display: none;width: 0px;}
 .top_search{
   width: 750rpx;
+  padding-top: 30rpx;
 }
 .input_search_view{
   margin: 0 auto;
@@ -16,8 +17,8 @@ position: relative;
   border: 1px solid lightgrey;
   border-radius: 7px;
   font-size: 15px;
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
+  /* margin-top: 30rpx; */
+  margin-bottom: 20rpx;
   justify-content:center; 
   align-items:center;
   text-align: left;
@@ -82,7 +83,7 @@ position: relative;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  top: 170rpx;
+  top: 190rpx;
   background: lightgray;
   overflow-y: scroll;
   overflow-x: hidden;

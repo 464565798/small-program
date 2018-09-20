@@ -5,7 +5,7 @@ Page({
    */
   data: {
     cateragy:[{cate_name:'生活用品',cate_id:0},{cate_name:'美味食品',cate_id:1},{cate_name: '家具材料',cate_id : 2},{cate_name:'化妆用品',cate_id: 3},{cate_name: '保健用品',cate_id: 4}],
-    cate_goods: [{ name: '沐浴露', desc: '飘柔', image: '../../resouce/goods/swish.jpg', cate_goods_id: 0 }, { name: '洗发水', desc: '力士', image: '../../resouce/goods/xiyiji.jpg', cate_goods_id: 1 }, { name: '厨具', desc: '双立人', image: '../../resouce/goods/waitao.jpg', cate_goods_id: 2 }, { name: '卫生纸', desc: '心相印', image: '../../resouce/goods/touying.jpg', cate_goods_id: 4 }],
+    cate_goods: [{ name: '沐浴露', desc: '飘柔', image: '../../resouce/goods/chahu.jpg', cate_goods_id: 0 }, { name: '洗发水', desc: '力士', image: '../../resouce/goods/fruit.jpg', cate_goods_id: 1 }, { name: '厨具', desc: '双立人', image: '../../resouce/goods/swish.jpg', cate_goods_id: 2 }, { name: '卫生纸', desc: '心相印', image: '../../resouce/goods/touying.jpg', cate_goods_id: 4 }],
     current_id : null,
     
   },
@@ -78,13 +78,13 @@ Page({
     var cate_goods ;
     switch(cu_id){
       case 0:
-        cate_goods = [{ name: '沐浴露', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '洗发水', desc: '力士', image: '../../resouce/common/shop_common_05.jpg', cate_goods_id: 1 }, { name: '厨具', desc: '双立人', image: '../../resouce/common/shop_common_06.jpg', cate_goods_id: 2 }, { name: '卫生纸', desc: '心相印', image: '../../resouce/common/shop_common_07.jpg', cate_goods_id: 4 }];break;
+        cate_goods = [{ name: '沐浴露', desc: '飘柔', image: '../../resouce/goods/chahu.jpg', cate_goods_id: 0 }, { name: '洗发水', desc: '力士', image: '../../resouce/goods/fruit.jpg', cate_goods_id: 1 }, { name: '厨具', desc: '双立人', image: '../../resouce/goods/swish.jpg', cate_goods_id: 2 }, { name: '卫生纸', desc: '心相印', image: '../../resouce/goods/touying.jpg', cate_goods_id: 4 }];break;
       case 1:
-        cate_goods = [{ name: '三只松鼠', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '米老头', desc: '力士', image: '../../resouce/common/shop_common_05.jpg', cate_goods_id: 1 }, { name: '亲嘴豆干', desc: '双立人', image: '../../resouce/common/shop_common_06.jpg', cate_goods_id: 2 }, { name: '甜心圈', desc: '心相印', image: '../../resouce/common/shop_common_07.jpg', cate_goods_id: 4 }]; break;
+        cate_goods = [{ name: '三只松鼠', desc: '飘柔', image: '../../resouce/goods/touying.jpg', cate_goods_id: 0 }, { name: '米老头', desc: '力士', image: '../../resouce/goods/waitao.jpg', cate_goods_id: 1 }, { name: '亲嘴豆干', desc: '双立人', image: '../../resouce/goods/wangzijiu.jpg', cate_goods_id: 2 }, { name: '甜心圈', desc: '心相印', image: '../../resouce/goods/xiezi.jpg', cate_goods_id: 4 }]; break;
       case 2:
-        cate_goods = [{ name: '马桶', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '飞航地板', desc: '力士', image: '../../resouce/common/shop_common_05.jpg', cate_goods_id: 1 }, { name: '铝合金门窗', desc: '双立人', image: '../../resouce/common/shop_common_06.jpg', cate_goods_id: 2 }]; break;
+        cate_goods = [{ name: '马桶', desc: '飘柔', image: '../../resouce/goods/xiyiji.jpg', cate_goods_id: 0 }, { name: '飞航地板', desc: '力士', image: '../../resouce/goods/chabei.jpg', cate_goods_id: 1 }, { name: '铝合金门窗', desc: '双立人', image: '../../resouce/goods/miaoao.jpg', cate_goods_id: 2 }]; break;
       case 3:
-        cate_goods = [{ name: '科颜氏', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '欧莱雅', desc: '力士', image: '../../resouce/common/shop_common_05.jpg', cate_goods_id: 1 }, { name: '迪奥', desc: '双立人', image: '../../resouce/common/shop_common_06.jpg', cate_goods_id: 2 }, { name: '安其拉', desc: '心相印', image: '../../resouce/common/shop_common_07.jpg', cate_goods_id: 4 }]; break;
+        cate_goods = [{ name: '科颜氏', desc: '飘柔', image: '../../resouce/common/shop_common_04.jpg', cate_goods_id: 0 }, { name: '欧莱雅', desc: '力士', image: '../../resouce/goods/jianshen.jpg', cate_goods_id: 1 }, { name: '迪奥', desc: '双立人', image: '../../resouce/goods/kafei.jpg', cate_goods_id: 2 }, { name: '安其拉', desc: '心相印', image: '../../resouce/goods/pijiu.jpg', cate_goods_id: 4 }, { name: '马桶', desc: '飘柔', image: '../../resouce/goods/xiyiji.jpg', cate_goods_id: 0 }, { name: '飞航地板', desc: '力士', image: '../../resouce/goods/chabei.jpg', cate_goods_id: 1 }, { name: '铝合金门窗', desc: '双立人', image: '../../resouce/goods/miaoao.jpg', cate_goods_id: 2 }]; break;
       case 4:
         cate_goods = [{ name: '枸杞子', desc: '飘柔',  cate_goods_id: 0 }, { name: '脑白金', desc: '力士',  cate_goods_id: 1 }, { name: '太太', desc: '双立人', cate_goods_id: 2 }, { name: '心尘变', desc: '心相印',  cate_goods_id: 4 }]; break;
     }
