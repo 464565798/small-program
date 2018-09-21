@@ -1,0 +1,2 @@
+<image src='cloud:///goods/chabei.jpg'></image>
+<view bindtap='tap'>上传</view>

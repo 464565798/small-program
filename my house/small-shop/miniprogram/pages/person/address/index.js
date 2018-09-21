@@ -63,5 +63,31 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  tap : function(){
+    console.log(123);
+    
+    // wx.chooseImage({
+    //   success: function(res) {
+    //     wx.cloud.uploadFile({
+    //       cloudPath: 'goods/chabei.jpg',
+    //       filePath: res.tempFilePaths[0],
+    //       success: function (e) {
+    //         console.log(e);
+    //       },
+    //       fail: function (e) {
+    //         console.log(e);
+    //       }
+    //     });
+    //   },
+    // })
+    const db = wx.cloud.database();
+    db.collection('user_list').get({
+      success : function(res){
+        console.log(res.data[0]._id);
+      }
+    });
+
+
   }
 })

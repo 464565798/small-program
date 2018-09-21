@@ -17,8 +17,8 @@ Page({
           { name: '黑色', current_list: [{ name: '4G', code: 10004 }, { name: '8G', code: 10005 }, { name: '16G', code: 10096 }, { name: '256G', code: 11099 }] }],
       },
     common : {
-      common_num:0,
-      image:'',
+      common_num:2,
+      image:'../../resouce/common/common.png',
       detail:'很好'
     },
     desc_image:[
@@ -122,5 +122,31 @@ Page({
       imagesScale : this.data.imagesScale
     });
 
+  },
+  //服务描述
+  server_module : function(){
+
+  },
+  //规格选择
+  server_rank : function(){
+
+  },
+  bottomAction : function(e){
+    let targetType = e.currentTarget.dataset.type;
+    console.log(targetType);
+    switch(targetType){
+      case 'collection':
+
+      break;
+      case 'share':
+        
+      break;
+      case 'add_car':
+      break;
+      case 'now_buy':
+      break;
+    }
+
   }
+
 })

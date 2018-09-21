@@ -1,13 +1,14 @@
-
+<view style='height:10px;background:white;width100%'></view>
 <swiper autoplay='{{false}}' indicator-dots='{{false}}' class='topView'>
       <block wx:for='{{goods_desc.image}}'  wx:key='*this'>
       <swiper-item>
-        <view class='imageSupview'>
-          <image src='{{item}}' class='slide-image'  bindload='loadImage' id='{{index}}' style='width:{{imagesScale[index].width}}rpx;height:{{imagesScale[index].height}}rpx;display: block;margin: 0 auto;'/>
+        <view>
+          <image src='{{item}}' bindload='loadImage' id='{{index}}' style='width:{{imagesScale[index].width}}rpx;height:{{imagesScale[index].height}}rpx;display: block;margin: 0 auto;'/>
         </view>
       </swiper-item>
       </block>
 </swiper>
+<view class='pageTipView'></view>
 <view class='titleView'>
   <view><text style='color:rgb(188, 75, 89);font-size:17px;'>￥{{goods_desc.price}}</text></view>
   <view class='title'><text>￥{{goods_desc.title}}</text></view>
@@ -18,3 +19,43 @@
   </view>
 </view>
 
+<view class='serverModule' bindtap='server_module'>
+  <view>
+    <text class='server_title'>服务　</text>
+    
+      <view class='server_desc' wx:for='{{server_desc}}' wx:key='{{index}}'>
+      <block wx:if='{{index>0}}'>·</block>
+        {{item.name}}
+      </view>
+  </view>
+  <view wx:if='{{rank_list}}' bindtap='server_rank'>
+    <text class='server_title'>选择　</text>
+    <text class='server_desc' wx:if='{{rank_desc.selected}}'>已选　{{rank_desc.title}}</text>
+    <text class='server_desc' wx:else>请选择　规格</text>
+  </view>
+</view>
+
+<view wx:if='{{common.common_num}}' class='commonSupView'>
+  <view class='commonView'>
+    <view class='leftTitle'>宝贝评价({{common.common_num}})</view><view class='rightAll'>查看全部 ></view>
+    <image src='{{common.image}}' mode='widthFix'></image>
+  </view>
+</view>
+<view class='goods_desc'>———— 商品详情 ————</view>
+<view class='commonView' wx:for='{{desc_image}}' wx:key='desc'>    
+    <image src='{{item}}' mode='widthFix'></image>
+</view>
+<view style='height:50px;width100%;'></view>
+<!-- 购买 -->
+<view class='bottm_buy'>
+  <view class='collection_view' bindtap='bottomAction' data-type='collection'>
+    <image src='../../resouce/common/collection.png' mode='scaleToFill'></image>
+    <text>收藏</text>
+  </view>
+  <view class='share_view' bindtap='bottomAction' data-type='share'>
+    <image src='../../resouce/common/share.png' mode='scaleToFill'></image>
+    <text>分享</text>
+  </view>
+  <button class='add_car' bindtap='bottomAction' data-type='add_car'>加入购物车</button>
+  <button class='now_buy' bindtap='bottomAction' data-type='now_buy'>立即购买</button>
+</view>

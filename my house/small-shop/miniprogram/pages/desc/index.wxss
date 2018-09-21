@@ -1,6 +1,8 @@
 page{
   width: 100%;
   background: lightgray;
+  overflow-x: hidden;
+  position: relative;
 }
 .topView{
   width: 750rpx;
@@ -8,7 +10,15 @@ page{
   /* margin-top: 15px; */
   background: white;
 }
-
+/* 页面指示 */
+.pageTipView{
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  right: 0px;
+  top: 270rpx;
+  height: 20rpx;
+}
 .titleView{
   width: 100%;
   background: white;
@@ -52,4 +62,105 @@ page{
 }
 .address{
   text-align: right;
+}
+
+/* //服务模块、规格选取 */
+.serverModule{
+  background: white;
+  width: 100%;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.server_title{
+  color: lightgray;
+  font-size: 10px;
+}
+.server_desc{
+  font-size: 10px;
+  color: black;
+  display: inline;
+}
+
+/* //评论 */
+.commonSupView{
+
+  margin-top: 10px;
+
+}
+.commonView{
+  background: white;
+  font-size: 10px;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 20rpx;
+}
+.commonView view{
+  width: 340rpx;
+  display: inline-block;
+  height: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.rightAll{
+  width: 340rpx;
+  text-align: right;
+  color: rgb(188, 75, 89);
+}
+.commonView image{
+  margin-top: 10px;
+  height: 250rpx;
+  width: 710rpx;
+}
+/* 商品详情 */
+.goods_desc{
+  text-align: center;
+  height: 25px;
+  font-size: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+/* 购买 */
+.bottm_buy{
+
+  background: white;
+  height: 50px;
+  display: flex;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  justify-content: center;
+  align-items: center;
+}
+/* 收藏分享 */
+.collection_view,.share_view{
+  width: 80rpx;
+  /* height: 50px; */
+  float: left;
+  text-align: center;
+  font-size: 8px;
+}
+.bottm_buy image{
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin: 0 auto;
+}
+.bottm_buy button{
+  color: white;
+  margin-right: 5px;
+  width: 290rpx;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.add_car{
+  background: rgb(242, 159, 97);
+}
+.now_buy{
+  background: rgb(238, 91, 41);
 }
