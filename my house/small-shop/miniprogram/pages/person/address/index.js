@@ -65,7 +65,7 @@ Page({
     
   },
   tap : function(){
-    console.log(123);
+    // console.log(123);
     
     // wx.chooseImage({
     //   success: function(res) {
@@ -81,10 +81,20 @@ Page({
     //     });
     //   },
     // })
-    const db = wx.cloud.database();
-    db.collection('user_list').get({
-      success : function(res){
-        console.log(res.data[0]._id);
+    // const db = wx.cloud.database();
+    // db.collection('user_list').get({
+    //   success : function(res){
+    //     console.log(res.data[0]._id);
+    //   }
+    // });
+    wx.cloud.callFunction({
+      name : 'addGoods',
+      data : {phone:13683748966},
+      success : function(e){
+        console.log(e);
+      },
+      fail : function(e){
+        console.log(e);
       }
     });
 
