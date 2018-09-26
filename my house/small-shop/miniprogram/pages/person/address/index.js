@@ -88,8 +88,11 @@ Page({
     //   }
     // });
     wx.cloud.callFunction({
-      name : 'addGoods',
-      data : {phone:13683748966},
+      name : 'getGoods',
+      data : {
+        goods_type:'server_goods',
+        shop_id : '100001'
+      },
       success : function(e){
         console.log(e);
       },
