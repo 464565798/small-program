@@ -9,7 +9,8 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+  },
+  globalData : {
+    shop_id : '100001'
   }
 })

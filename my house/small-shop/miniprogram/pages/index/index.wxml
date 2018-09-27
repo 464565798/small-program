@@ -27,16 +27,16 @@
 </view>
 
 <!-- 综合服务区 -->
-<view class='goods_title'>综合服务区</view>
+<view class='goods_title' wx:if='{{server_goods_list.length}}'>综合服务区</view>
 <import src='../server_module/index.wxml'/>
-<template is='right_server' data='{{server_goods:goods}}'>
+<template is='right_server' data='{{server_goods:server_goods_list}}'>
 </template>
-<view class='goods_title'>热销品牌</view>
+<view class='goods_title' wx:if='{{server_goods_list.length}}'>热销品牌</view>
 <import src='../server_module/index.wxml'/>
-<template is='left_server' data='{{server_goods:goods}}'>
+<template is='left_server' data='{{server_goods:server_goods_list}}'>
 </template>
 <!-- //推荐商品 -->
   <view class='goods_title'>推荐商品</view>
   <import src='../common_good/index.wxml'/>
-  <template is='common_goods' data="{{all_goods:goods,col1:col1,col2:col2}}"></template>
+  <template is='common_goods' data="{{all_goods:goods}}"></template>
 </scroll-view>
