@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
   var shops_id = event.shop_id;
   let page = event.page;
   if(!shops_id){
-    return '参数异场';
+    return '参数异常';
   }
   switch(goods_type){
     case 'server_goods':  //服务区商品
@@ -25,6 +25,11 @@ exports.main = async (event, context) => {
     case 'ads':
       return getAdsImage(shops_id);
       break; 
+    case 'categoods':
+      
+      let cate_name = event.cateName;
+      return cateGoods(cate_name);
+      break;
     default:
     return '错误';
     break;
@@ -69,4 +74,22 @@ function getAdsImage(id){
   }).get().then(res =>{
     return res;
   });
+}
+
+function cateGoods(cateName){
+ return cloud.database().collection('goods_list').where({
+    goods_cate_name : cateName
+  }).field({
+    goods_desc: true,
+    goods_image: true,
+    goods_name: true,
+    goods_price: true,
+    goods_id: true,
+    goods_sale_num : true,
+    add_time: true,
+    shop_id : true
+  }).get().then(res=>{
+    return res.data;
+  });
+
 }

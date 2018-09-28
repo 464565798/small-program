@@ -9,12 +9,12 @@
 <view class='sepa_lab'></view>
 <view class='left_categrogy'>
   <scroll-view>
-    <block wx:for='{{cateragy}}' wx:key='{{item.cate_id}}'>
-    <view wx:if='{{current_id==item.cate_id}}' class='cate_view_select' id='{{index}}' bindtap='tapCateragy' data-index-key='{{item.cate_id}}'>
+    <block wx:for='{{category}}' wx:key='{{index}}'>
+    <view wx:if='{{index==current_index}}' class='cate_view_select' bindtap='tapCategory' data-index-key='{{index}}'>
     <text>{{item.cate_name}}</text>
       
     </view>
-    <view wx:else class='cate_view' id='{{index}}' bindtap='tapCateragy' data-index-key='{{item.cate_id}}'>
+    <view wx:else class='cate_view' bindtap='tapCategory' data-index-key='{{index}}'>
     <text>{{item.cate_name}}</text>
     </view>
     </block>
@@ -23,13 +23,13 @@
 </view>
 <view class='right_descgoods'>
   <scroll-view>
-    <block wx:for='{{cate_goods}}' wx:key='{{item.cate_goods_id}}'>
-    <view wx:if='{{item.image}}' class='cate_good_view' bindtap='tapDescCategoods' data-categoodsid='{{item.cate_goods_id}}'>
+    <block wx:for='{{category[current_index].list}}' wx:key='{{index}}'>
+    <view wx:if='{{category[current_index].type=="image"}}' class='cate_good_view' bindtap='tapDescCategoods' data-cate-name='{{item.name}}'>
       <image src='{{item.image}}' mode='scaleToFill'></image>
       <text>{{item.name}}</text>
     </view>
-    <view wx:else class='cate_good_text_view' bindtap='tapDescCategoods' data-categoodsid='{{item.cate_goods_id}}'>
-      <text>{{item.name}}</text>
+    <view wx:else class='cate_good_text_view' bindtap='tapDescCategoods' data-cate-name='{{item}}'>
+      <text>{{item}}</text>
     </view>
     </block>
   </scroll-view>

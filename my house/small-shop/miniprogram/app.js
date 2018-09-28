@@ -12,5 +12,24 @@ App({
   },
   globalData : {
     shop_id : '100001'
+  },
+  getPathWithDeepLinkUrl: function (url) {
+    var pathUrl = '';
+    if (url == '' || !url) return pathUrl;
+    var strArry = url.split("?");
+    var path = strArry[0];
+    if (!path) return;
+    switch (path) {
+      case 'goods_detail':  //商品详情
+        pathUrl = '/pages/desc/index';
+      case 'contact_detail': //客户会话
+
+        break;
+      default: break
+    }
+    if (strArry.length > 1) {
+      pathUrl = pathUrl + '?' + strArry[1];
+    }
+    return pathUrl;
   }
 })

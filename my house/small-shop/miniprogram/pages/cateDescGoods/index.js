@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
 
   /**
@@ -5,9 +6,9 @@ Page({
    */
   data: {
 
-    cate_id: 0,               //分类ID
+    cateName: null,               //分类ID
     current_sort_index: 0,     //筛选ID
-    goods_list: [{ name: '紫金茶壶', desc: '德国进口茶具', price: 100, id: 885, image: '../../resouce/goods/chahu.jpg', shopName: '张迪旗舰店' }, { name: '茶壶', desc: '英国进口茶具', price: 130, id: 1088, image: '../../resouce/goods/fruit.jpg', shopName: '张迪旗舰店' }, { name: '车厘子', desc: '自产水果', price: 130, id: 88, image: '../../resouce/goods/ping.jpg', shopName: '张迪旗舰店' }, { name: '月饼', desc: '月饼 祝福4只', price: 99, id: 787, image: '../../resouce/goods/swish.jpg', shopName: '张迪旗舰店' }, { name: '洗衣机', desc: '德国进口茶具', price: 10, id: 778, image: '../../resouce/goods/chabei.jpg', shopName: '张迪旗舰店' }, { name: '茶杯 定制 情侣杯', desc: '青花瓷茶杯特价炫彩', price: 100, id: 90000, image: '../../resouce/goods/miaoao.jpg', shopName: '张迪旗舰店' }, { name: '棉袄', desc: '德国进口茶具', price: 9009, id: 1100, image: '../../resouce/goods/shuibei.jpg', shopName: '张迪旗舰店'}, { name: '沐浴露', desc: '德国进口茶具', price: 100, id: 500, image: '../../resouce/goods/pijiu.jpg' }, { name: '袜子', desc: '德国进口茶具', price: 130, id: 10000, image: '../../resouce/goods/xiyiji.jpg' }, { name: '袜子', desc: '德国进口茶具', price: 130, id: 60, image: '../../resouce/goods/shubao.jpg' }, { name: '禅语', desc: '德国进口茶具', price: 99, id: 70, image: '../../resouce/goods/wangzijiu.jpg' }, { name: '花露', desc: '德国进口茶具', price: 10, id: 80, image: '../../resouce/goods/waitao.jpg' }, { name: '沐浴露', desc: '德国进口茶具', price: 100, id: 90, image: '../../resouce/goods/kafei.jpg' }, { name: '咖啡', desc: '雀巢情侣咖啡 提神', price: 99, id: 102, image: '../../resouce/goods/xiezi.jpg' }, { name: '足球鞋', desc: '学生足球鞋短钉跑步鞋', price: 99, id: 71, image: '../../resouce/goods/touying.jpg' }, { name: '投影仪', desc: '投影仪器公司家用特价', price: 10, id: 800, image: '../../resouce/goods/jianshen.jpg' }, { name: '举重棒', desc: '美国进口20kg 男士室内健身', price: 1000, id: 9, image: '../../resouce/goods/kafei.jpg' }, { name: '咖啡', desc: '雀巢情侣咖啡 提神',price: 99, id: 101, image: '../../resouce/goods/xiezi.jpg' }],
+    goods_list: [],
     isBlockStyle : true //是否块状
   },
 
@@ -15,11 +16,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let cate_good_id = options.cate_good_id;
-    if(cate_good_id){
-      this.setData({
-        cate_id : cate_good_id
+    let cateName = options.cateName;
+    if (cateName){
+      wx.cloud.callFunction({
+        name : 'getGoods',
+        data :{
+          goods_type : 'categoods',
+          cateName: cateName,
+          shop_id: app.globalData.shop_id
+        },
+        success :res=>{
+          this.setData({
+            goods_list : res.result
+          });
+        }
       });
+      
     };
     
   },
