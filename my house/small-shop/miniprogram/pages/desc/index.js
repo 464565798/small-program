@@ -6,23 +6,30 @@ Page({
   data: {
     goodsId:0,
     goods_desc: {
-      image: ['../../resouce/goods_desc/goods.jpg','../../resouce/goods/chabei.jpg'], price: 100, title: 'Samsung/三星 GALAXY S8 Plus港版盖乐世s8+全网通4G曲屏智能手机', postalTip:0.00, saleNum:98 ,saleAddress:'自营'},
-    server_desc: [{ image: '', name: '正品保证', detail: '' }, { image: '', name: '极速退款', detail: '' }, { image: '', name: '赠送运险', detail: '' }],
-    discount : {title:'店铺优惠券',item:[]},
-    rank_desc : {selected:false,title:'规格'},
-  
-    rank_list: {
-        name: '颜色分类', current_list: [
-          { name: '紫色', current_list: [{ name: '4G', code: 11004 }, { name: '8G', code: 11005 }, { name: '16G', code: 11096 }] }, 
-          { name: '黑色', current_list: [{ name: '4G', code: 10004 }, { name: '8G', code: 10005 }, { name: '16G', code: 10096 }, { name: '256G', code: 11099 }] }],
+      goods_images: [], 
+      goods_detail: [
+      ],
+      goods_price: 0, 
+      goods_desc: '', 
+      goods_postalTip:0.00, 
+      goods_sale_num:0 ,
+      saleAddress:'自营',
+      goods_server_desc :[],
+      server_desc: [],
+      goods_rank_list:[{
+        name:'',rank_desc:[]
+      }],
       },
+    
+    discount : {title:'店铺优惠券',item:[]},
+ 
     common : {
-      common_num:2,
-      image:'../../resouce/common/common.png',
+      common_num:0,
+      images:[],
       detail:'很好'
     },
     desc_image:[
-      '../../resouce/goods_desc/goods1.jpg', '../../resouce/goods_desc/goods2.jpg', '../../resouce/goods_desc/goods3.jpg', '../../resouce/goods_desc/goods4.jpg', '../../resouce/goods_desc/goods5.jpg', '../../resouce/goods_desc/goods6.jpg', '../../resouce/goods_desc/goods7.jpg','../../resouce/goods_desc/goods8.jpg'
+      // '../../resouce/goods_desc/goods1.jpg', '../../resouce/goods_desc/goods2.jpg', '../../resouce/goods_desc/goods3.jpg', '../../resouce/goods_desc/goods4.jpg', '../../resouce/goods_desc/goods5.jpg', '../../resouce/goods_desc/goods6.jpg', '../../resouce/goods_desc/goods7.jpg','../../resouce/goods_desc/goods8.jpg'
     ],
     windowWidth:750,
     imagesScale: [{ width: 0, height: 0 }, { width: 0, height: 0 }, { width: 0, height: 0}]
@@ -50,9 +57,48 @@ Page({
         });
 
       },
-    })
+    });
+    this.refreData();
   },
-
+  refreData:function(){
+    let weak_self = this;
+    wx.cloud.callFunction({
+      name: 'getGoodsDetail',
+      data: {
+        goods_id: this.data.goodsId,
+        detailType: 'goods_detail'
+      },
+      success: res => {
+        console.log(res);
+        weak_self.setData({
+          goods_desc : res.result
+        });
+      },
+      fail : function(res){
+        console.log(res);
+      }
+    });
+    wx.cloud.callFunction({
+      name: 'getGoodsDetail',
+      data: {
+        goods_id: this.data.goodsId,
+        detailType: 'comment'
+      },
+      success: res => {
+        console.log(res);
+        var comment = res.result[0];
+        console.log(typeof(comment));
+        comment.common_num = res.result.length;
+        console.log(comment);
+        weak_self.setData({
+          common: comment
+        });
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

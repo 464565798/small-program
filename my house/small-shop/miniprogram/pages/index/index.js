@@ -44,8 +44,31 @@ Page({
     // this.setData({
     //   goods:newArr
     // });
+    var weak_self = this;
     this.data.page ++;
-    this.refreshData();
+    //推荐商品
+    wx.cloud.callFunction({
+      name: 'getGoods',
+      data: {
+        goods_type: 'recommend_goods',
+        page: parseInt(this.data.page),
+        shop_id: app.globalData.shop_id
+      },
+      success: function (e) {
+        var new_goods = weak_self.data.goods;
+        for (let i = 0; i < e.result.data.length; i++) {
+          new_goods.push(e.result.data[i]);
+        }
+        console.log(new_goods);
+        wx.stopPullDownRefresh();
+        weak_self.setData({
+          goods: new_goods
+        });
+      },
+      fail: function (e) {
+        console.log(e);
+      }
+    });
   },
   // onPageScroll:function(e){
   //   console.log(e);
@@ -106,7 +129,7 @@ Page({
       name: 'getGoods',
       data: {
         goods_type: 'recommend_goods',
-        page : weak_self.data.page,
+        page : parseInt(this.data.page),
         shop_id: app.globalData.shop_id
       },
       success: function (e) {

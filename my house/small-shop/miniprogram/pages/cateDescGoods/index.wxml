@@ -2,7 +2,7 @@
 <view class='top_search'>
   <view class='input_search_view'>
     <image src='../../resouce/search.png'></image>
-    <input type='text' placeholder='请输入搜索商品的名称' confirm-type='search' bindconfirm='searchGoods'></input>
+    <input type='text' placeholder='请输入搜索商品的名称' confirm-type='search' bindconfirm='searchGoods' disabled='{{true}}'></input>
   </view>
 </view>
 
