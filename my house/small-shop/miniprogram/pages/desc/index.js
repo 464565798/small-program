@@ -88,6 +88,7 @@ Page({
         console.log(res);
         var comment = res.result[0];
         console.log(typeof(comment));
+        if(!comment)return;
         comment.common_num = res.result.length;
         console.log(comment);
         weak_self.setData({
