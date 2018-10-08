@@ -1,0 +1,47 @@
+page{
+  background: lightgray;
+  padding-top: 40rpx;
+  width: 100%;
+}
+view{
+  background: white;
+  margin-top: 1px;
+  width: 710rpx;
+  min-height: 50px;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  justify-content: center; 
+  align-items: center;
+   display: flex;
+}
+view text{
+  float: left;
+  font-size: 13px;
+  /* width: 150rpx; */
+  flex: 1;
+  text-align: right;
+  /* display: inline-block; */
+  
+}
+view input{
+  float: left;
+  /* width: 600rpx; */
+  flex: 3.5;
+  
+  /* display: inline-block; */
+  font-size: 13px;
+}
+.addAddress{
+  background: transparent;
+  width: 600rpx;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 0px;
+}
+.addAddress button{
+  float: none;
+  width: 600rpx;
+  background: rgb(226, 71, 71);
+  color: white;
+  font-size: 16px;
+}

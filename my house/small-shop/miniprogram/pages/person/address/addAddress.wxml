@@ -1,0 +1,19 @@
+<view>
+  <text>姓名：</text>
+  <input type='text' placeholder='请输入姓名' value='{{address.name}}'></input>
+</view>
+<view>
+  <text>联系电话：</text>
+  <input type='text' placeholder='请输入联系电话' value='{{address.phone}}'></input>
+</view>
+<view>
+  <text>地区选择：</text>
+  <input type='text' placeholder='请选择地区' value='{{address.province+address.city+address.district}}'></input>
+</view>
+<view>
+  <text>详细地址：</text>
+  <input type='text' placeholder='请输入详细地址' value='{{address.addressDetail}}'></input>
+</view>
+<view class='addAddress' bindtap='addAddress'>
+    <button>保存地址</button>
+</view>

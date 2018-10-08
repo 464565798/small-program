@@ -22,8 +22,8 @@
     "pages/person/buyCar/index",
     "pages/person/myCollection/index",
     "pages/person/order/index",
-    "pages/person/address/index"
-
+    "pages/person/address/index",
+    "pages/person/address/addAddress"
 
   ],
   "window": {

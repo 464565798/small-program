@@ -1,0 +1,71 @@
+
+page{
+  width: 100%;
+  background: lightgray;
+}
+.addressPage{
+  width: 710rpx;
+  padding: 20rpx;
+  margin-top: 10px;
+  background: white;
+}
+
+.name,.phone{
+  font-size: 13px;
+  color: black;
+}
+.phone{
+  margin-left: 30px;
+}
+.detail{
+  font-size: 11px;
+  color: rgb(145, 137, 137);
+}
+
+/* 分割线 */
+.sepa_lab{
+  width: 100%;
+  margin-top: 15rpx;
+  height: 2rpx;
+  background: lightgray
+  
+}
+.bottomView{
+  margin-top: 20rpx;
+  width: 710rpx;
+  font-size: 13px;
+  color: rgb(92, 85, 85);
+}
+.bottomView text{
+  margin-left: 3px;
+  margin-right: 8px;
+}
+.bottomView image{
+  width: 15px;
+  height: 15px;
+}
+.bottomView view{
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.isFirst{
+  float: left;
+}
+.edit,.delete{
+  float: right;
+  
+}
+.addAddress{
+  
+  width: 600rpx;
+  margin: 0 auto;
+  margin-top: 20px;
+  
+}
+.addAddress button{
+  background: rgb(226, 71, 71);
+  color: white;
+  font-size: 16px;
+}

@@ -1,2 +1,33 @@
-<image src='cloud:///goods/chabei.jpg'></image>
-<view bindtap='tap'>上传</view>
+<!-- <image src='cloud:///goods/chabei.jpg'></image>
+<view bindtap='tap'>上传</view> -->
+<view wx:if='{{addressList.length}}'>
+  <view class='addressPage' wx:for='{{addressList}}' wx:key='{{index}}'>
+    <text class='name'>{{item.name}}</text>
+    <text class='phone'>{{item.phone}}</text>
+    <view class='detail'>
+      <text>{{item.addressDetail}}</text>
+    </view>
+    <view class='sepa_lab'></view>
+    <view class='bottomView'>
+      <view class='isFirst' bindtap='settingDefault' data-position-index='{{index}}'>
+        <image src='../../../resouce/person/select_on.png' mode='scaleToFill' wx:if='{{item.isDefault}}'></image>
+        <image src='../../../resouce/person/select_off.png' mode='scaleToFill' wx:else ></image>
+        <text>默认地址</text>
+      </view>
+      <view class='edit' bindtap='editAddress' data-position-index='{{index}}'>
+        <image src='../../../resouce/person/edit.png' mode='scaleToFill'></image><text>编辑</text>
+      </view>
+      <view class='delete' bindtap='deleteAddress' data-position-index='{{index}}'>
+        <image src='../../../resouce/person/delete.png' mode='scaleToFill'></image><text>删除</text>
+      </view>
+      <view style='clear:both'></view>
+    </view>
+  </view>
+  <view class='addAddress' bindtap='addAddress'>
+    <button>添加新地址</button>
+  </view>
+</view>
+<view wx:else>
+
+</view>
+

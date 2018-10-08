@@ -29,7 +29,7 @@ Page({
         console.log(res.result);
         if (res.result.length) {
           weak_self.setData({
-            category: res.result,
+            category: res.result
           });
         }
       }

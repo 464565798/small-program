@@ -4,7 +4,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    addressList:[
+     
+    ]
   },
 
   /**
@@ -13,7 +15,8 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '管理收货地址',
-    })
+    });
+    // wx.cloud.callFunction();
   },
 
   /**
@@ -27,7 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.refreshData();
   },
 
   /**
@@ -48,14 +51,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    this.refreshData();
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
+  refreshData: function(){
+    let weak_self = this;
+    wx.cloud.callFunction({
+      name: 'getAddressList',
+      success:res=>{
+        wx.stopPullDownRefresh();
+        let list = res.result.data;
+        weak_self.setData({
+          addressList : list
+        });
+      }
+    });
   },
 
   /**
@@ -100,7 +109,69 @@ Page({
         console.log(e);
       }
     });
-
-
+  },
+  settingDefault : function(e){
+    let positionIndex = e.currentTarget.dataset.positionIndex;
+    let weak_self = this;
+//设置默认
+    console.log(positionIndex);
+    wx.cloud.callFunction({
+      name: 'settingDefaltAddress',
+      data : {
+        addressId : weak_self.data.addressList[positionIndex]._id
+      },
+      success :res => {
+        console.log(res);
+        if(res.result == 'success'){
+          weak_self.refreshData();
+        }
+      },
+    });
+    
+  },
+  editAddress : function(e){
+    let positionIndex = e.currentTarget.dataset.positionIndex;
+//编辑地址
+    wx.navigateTo({
+      url: 'addAddress?addressId=' + this.data.addressList[positionIndex]._id,
+    })
+  
+  },
+  deleteAddress : function(e){
+    
+    let positionIndex = e.currentTarget.dataset.positionIndex;
+    let weak_self = this;
+    wx.showModal({
+      title: '',
+      content: '确认删除？',
+      showCancel: true,
+      confirmText: '删除',
+      confirmColor: 'red',
+      success: function (res) { 
+        console.log(res);
+        if(res.confirm){
+          // var list = weak_self.data.addressList;
+          // list.splice(positionIndex,1);
+          // weak_self.setData({
+          //   addressList : list
+          // });
+          wx.cloud.callFunction({
+            name: 'deleteAddress',
+            data: {
+              addressId: weak_self.data.addressList[positionIndex]._id
+            },
+            success : function(){
+              weak_self.refreshData();
+            }
+          });
+          
+        }
+      }
+    })
+  },
+  addAddress : function(){
+    wx.navigateTo({
+      url: 'addAddress',
+    })
   }
 })
