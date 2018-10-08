@@ -146,7 +146,7 @@ Page({
       content: '确认删除？',
       showCancel: true,
       confirmText: '删除',
-      confirmColor: 'red',
+      confirmColor: '#DA4444',
       success: function (res) { 
         console.log(res);
         if(res.confirm){
