@@ -92,6 +92,9 @@ Page({
   },
   refreshData : function(){
     var weak_self = this;
+    wx.showLoading({
+      title: '加载商品中...',
+    })
     //轮播
     wx.cloud.callFunction({
       name: 'getGoods',
@@ -133,6 +136,7 @@ Page({
         shop_id: app.globalData.shop_id
       },
       success: function (e) {
+        wx.hideLoading();
         var new_goods = weak_self.data.goods;
         for(let i =0;i<e.result.data.length;i++){
           new_goods.push(e.result.data[i]);
@@ -144,6 +148,7 @@ Page({
         });
       },
       fail: function (e) {
+        wx.hideLoading();
         console.log(e);
       }
     });

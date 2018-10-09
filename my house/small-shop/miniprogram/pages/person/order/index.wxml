@@ -1,1 +1,22 @@
-{{index}}
+
+<view class='title_view'>
+
+    <block wx:for='{{titleArray}}' wx:key='{{index}}' wx:for-index='i'>
+      <view wx:if='{{index==i}}' class='current_page' data-current-index='{{i}}'>
+        <text>{{item}}</text>
+        <view class='sepa_lab'></view>
+      </view>
+      <view wx:else class='page' data-current-index='{{i}}' bindtap='changePage'>
+        <text>{{item}}</text>
+      </view>
+    </block>
+
+    <view style='clear:both;'></view>
+</view>
+<view wx:if='{{orderList.length}}'>
+
+</view>
+<view wx:else class='no_order'>
+  <image src='../../../resouce/person/icon_illegal_no_order.png'></image>
+  <text>暂无订单</text>
+</view>

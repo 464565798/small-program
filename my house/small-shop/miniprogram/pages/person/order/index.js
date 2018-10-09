@@ -5,6 +5,10 @@ Page({
    */
   data: {
     index:0,
+    titleArray :['全部','待付款','待收货','待评价','退款退货'],
+    orderList : [
+      
+    ]
   },
 
   /**
@@ -12,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
    wx.setNavigationBarTitle({
-     title: '签到',
+     title: '我的订单',
    })
    this.setData({
      index : options.index ? options.index : 0,
@@ -67,5 +71,11 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  changePage : function(e){
+    let index = e.currentTarget.dataset.currentIndex;
+    this.setData({
+      index : index
+    });
   }
 })

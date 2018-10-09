@@ -1,18 +1,29 @@
 <view>
   <text>姓名：</text>
-  <input type='text' placeholder='请输入姓名' value='{{address.name}}'></input>
+  <input type='text' placeholder='请输入姓名' value='{{address.name}}' bindinput='changeName' maxlength='20'></input>
 </view>
 <view>
   <text>联系电话：</text>
-  <input type='text' placeholder='请输入联系电话' value='{{address.phone}}'></input>
+  <input type='text' placeholder='请输入联系电话' value='{{address.phone}}' bindinput='changePhone' maxlength='11'></input>
 </view>
 <view>
   <text>地区选择：</text>
-  <input type='text' placeholder='请选择地区' value='{{address.province+address.city+address.district}}'></input>
+  
+    <block wx:if='{{address.province&&address.city&&address.district}}'>
+    <picker mode='region' bindchange='bindRegionChange' value='{{[address.province,address.city,address.district]}}'>
+    <input type='text' placeholder='请选择地区' value='{{address.province+address.city+address.district}}' disabled='{{true}}'></input>
+    </picker>
+    </block>
+    <block wx:else>
+    <picker mode='region' bindchange='bindRegionChange'>
+    <input type='text' placeholder='请选择地区' disabled='{{true}}'></input>
+    </picker>
+    </block>
+  
 </view>
 <view>
   <text>详细地址：</text>
-  <input type='text' placeholder='请输入详细地址' value='{{address.addressDetail}}'></input>
+  <textarea auto-height='{{true}}' maxlength='100' placeholder='请输入详细地址' value='{{address.addressDetail}}' bindinput='inputDetail'></textarea>
 </view>
 <view class='addAddress' bindtap='addAddress'>
     <button>保存地址</button>

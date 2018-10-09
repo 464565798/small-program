@@ -23,14 +23,13 @@ view text{
   /* display: inline-block; */
   
 }
-view input{
+
+input,picker,textarea{
   float: left;
-  /* width: 600rpx; */
   flex: 3.5;
-  
-  /* display: inline-block; */
   font-size: 13px;
 }
+
 .addAddress{
   background: transparent;
   width: 600rpx;

@@ -55,14 +55,21 @@ Page({
   },
   refreshData: function(){
     let weak_self = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.cloud.callFunction({
       name: 'getAddressList',
       success:res=>{
+        wx.hideLoading();
         wx.stopPullDownRefresh();
         let list = res.result.data;
         weak_self.setData({
           addressList : list
         });
+      },
+      fail:res=>{
+        wx.hideLoading();
       }
     });
   },
