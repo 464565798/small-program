@@ -84,7 +84,9 @@ Page({
   },
   onLoad: function () {
     let weak_self = this;
-
+    wx.showLoading({
+      title: '加载商品中...',
+    })
     wx.setNavigationBarTitle({
       title: '推荐商品',
     });
@@ -92,9 +94,7 @@ Page({
   },
   refreshData : function(){
     var weak_self = this;
-    wx.showLoading({
-      title: '加载商品中...',
-    })
+   
     //轮播
     wx.cloud.callFunction({
       name: 'getGoods',

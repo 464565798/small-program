@@ -13,8 +13,40 @@
 
     <view style='clear:both;'></view>
 </view>
-<view wx:if='{{orderList.length}}'>
-
+<view wx:if='{{orderList.length}}' class='order_view'>
+  <view wx:for='{{orderList}}' wx:key='{{index}}' style='margin-bottom:20rpx;background: white;'>
+    <view class='shop_title'>
+      <image src='../../../resouce/person/shop.png' style='width:40rpx;height:40rpx;' mode='scaleToFill'></image>
+      <text class='left_shop_name'>{{item.shopName}}</text>
+      <text class='right_state' wx:if='{{item.state==0}}'>待付款</text>
+      <text class='right_state' wx:if='{{item.state==1}}'>待收货</text>
+      <text class='right_state' wx:if='{{item.state==2}}'>待评价</text>
+      <text class='right_state' wx:if='{{item.state==3}}'>退货中</text>
+    </view>
+    <view class='goods_detail' wx:for='{{item.goods_list}}' wx:for-item='goods_detail' wx:for-index='key' wx:key='{{key}}' bindtap='goGoodsDescAction' data-goods-id='{{goods_detail.goods_id}}'>
+      <image class='goods_image' src='{{goods_detail.goods_image}}' mode='scaleToFill'>
+      </image>
+      <view class='goods'>
+        <text class='goods_desc'>{{goods_detail.goods_desc}}</text>
+        <text class='price'>{{goods_detail.goods_price}}</text>
+        <text class='number'>×{{goods_detail.buy_number}}</text>
+        <view style='clear:both;'></view>
+      </view>
+      <view style='clear:both;width:700rpx;height:1px;margin-top:20rpx;background:lightgray;'></view>
+    </view>
+    <view class='bottom_desc'>
+      <text>共{{item.goods_number}}件商品，合计{{item.all_price}}元</text>
+      <button wx:if='{{item.state==0}}' bindtap='cancelOrderAction' data-order-index='{{item._id}}'>取消订单</button>
+      <button wx:if='{{item.state==1}}' bindtap='returnOrderAction' data-order-index='{{item._id}}'>退款/退货</button>
+    </view>
+    <view style='clear:both;width:700rpx;height:1px;margin-top:40rpx;margin-left:20rpx;background:lightgray;'></view>
+    <view class='bttom_button' bindtap='bottom_action' data-order-state='{{item.state}}' data-order-id='{{item._id}}'>
+      <button wx:if='{{item.state==0}}'>支付订单</button>
+      <button wx:if='{{item.state==1}}'>确认收货</button>
+      <button wx:if='{{item.state==2}}'>去评价</button>
+      <!-- <button wx:elseif='{{item.state==1}}'>确认收货</button> -->
+    </view>
+  </view>
 </view>
 <view wx:else class='no_order'>
   <image src='../../../resouce/person/icon_illegal_no_order.png'></image>

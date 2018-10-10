@@ -29,7 +29,7 @@ Page({
       detail:'很好'
     },
     desc_image:[
-      // '../../resouce/goods_desc/goods1.jpg', '../../resouce/goods_desc/goods2.jpg', '../../resouce/goods_desc/goods3.jpg', '../../resouce/goods_desc/goods4.jpg', '../../resouce/goods_desc/goods5.jpg', '../../resouce/goods_desc/goods6.jpg', '../../resouce/goods_desc/goods7.jpg','../../resouce/goods_desc/goods8.jpg'
+
     ],
     windowWidth:750,
     imagesScale: [{ width: 0, height: 0 }, { width: 0, height: 0 }, { width: 0, height: 0}]

@@ -7,7 +7,7 @@ page{
   height: 50px;
   width: 750rpx;
   display: flex;
-  
+  position: fixed;
   
 }
 .current_page,.page{
@@ -50,5 +50,111 @@ page{
   .no_order text{
     font-size: 14px;
     color: black;
+    opacity: 0.5;
     text-align: center;
+  }
+  .order_view{
+    position: absolute;
+    top: 52px;
+    /* background: white; */
+    bottom: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  /* //订单信息 */
+  .shop_title{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    height: 30px;
+    border-bottom: 1px solid lightgray;
+    width: 750rpx;
+  }
+  .left_shop_name{
+    margin-left: 20rpx;
+    text-align: left;
+    font-size: 13px;
+    width: 300rpx;
+  }
+  .right_state{
+    text-align: right;
+    font-size: 15px;
+    color: red;
+    width: 360rpx;
+  }
+  /* 商品列表 */
+  .goods_detail{
+    padding: 20rpx;
+    width: 710rpx;
+    /* background: red; */
+  }
+  .goods_image{
+    width: 80rpx;
+    height: 80rpx;
+    float: left;
+  }
+  .goods{
+    margin-left: 20rpx;
+    width: 610rpx;
+    /* height: 80rpx; */
+    float: left;
+    
+  }
+  .goods_desc{
+    /* background: red; */
+    width: 610rpx;
+    height: 50rpx;
+    color: black;
+    font-size: 12px;
+    display: block;
+    /* float: left; */
+    /* line-height: 25rpx; */
+  }
+  .price{
+    margin-top: 20rpx;
+    width: 300rpx;
+    height: 30rpx;
+    text-align: left;
+    color: red;
+    font-size: 14px;
+    display: inline-block;
+    
+  }
+  .number{
+    margin-top: 20rpx;
+    width: 300rpx;
+    height: 30rpx;
+    text-align: right;
+    color: lightgray;
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  .bottom_desc{
+    color: rgb(63, 61, 61);
+    font-size: 12px;
+    width: 680rpx;
+    text-align: right;
+  }
+  .bottom_desc button{
+    width: 100px;
+    /* height: 20px; */
+    margin-left: 20px;
+    float: left;
+    font-size: 11px;
+  }
+
+  .bttom_button{
+    /* background: rebeccapurple; */
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    width: 650rpx;
+    margin: 0 auto;
+    /* height: 50px; */
+  }
+  .bttom_button button{
+    background: rgb(218, 93, 93);
+    color: white;
   }
