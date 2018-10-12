@@ -13,7 +13,6 @@ exports.main = async (event, context) => {
     
     }).get();
   }else{
-
     return cloud.database().collection('order_list').where({
       _openid: openId,
       state : order_state

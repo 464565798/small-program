@@ -86,6 +86,7 @@ Page({
     let weak_self = this;
     wx.showLoading({
       title: '加载商品中...',
+      mask: true
     })
     wx.setNavigationBarTitle({
       title: '推荐商品',

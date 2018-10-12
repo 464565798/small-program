@@ -3,10 +3,10 @@ page{
 }
 .title_view{
   background: white;
-  margin-top: 1px;
   height: 50px;
   width: 750rpx;
   display: flex;
+  top: 1px;
   position: fixed;
   
 }

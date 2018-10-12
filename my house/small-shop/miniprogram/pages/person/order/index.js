@@ -7,68 +7,57 @@ Page({
     index:0,
     titleArray :['全部','待付款','待收货','待评价','退款退货'],
     orderList : [
-      {
-        _id : '12323dasdsa12',
-        shopName:'旗舰店',
-    
-        state : 0,    //0--待付款   1-待收货    2-待评价   3-退款退货
-        goods_list: [{
-          _id:'',
-          goods_name: "妈妈长袖", 
-          goods_desc: "2018新款妈妈长袖洋气上衣服中老年女春秋装中年气质短款外套高贵", 
-          goods_price: 330, 
-          goods_id: "10023", 
-          goods_image: "cloud:///goods/O1CN0122xEagZJDTIAVrM_!!1973837186-0-item_pic.jpg_460x460Q90.jpg",
-      
-          buy_number: 3
-        }, {
-            _id: '',
-            goods_name: "妈妈长袖",
-            goods_desc: "2018新款妈妈长袖洋气上衣服中老年女春秋装中年气质短款外套高贵",
-            goods_price: 330,
-            goods_id: "10023",
-            goods_image: "cloud:///goods/O1CN0122xEagZJDTIAVrM_!!1973837186-0-item_pic.jpg_460x460Q90.jpg",
-            buy_number: 3
-          }],
-        all_price:1000,
-        goods_number : 10,
-      },
-      {
-        _id: '12323dasdsa12',
-        shopName: '旗舰店',
-        
-        state: 1,    //0--待付款   1-待收货    2-待评价   3-退款退货
-        goods_list: [{
-          goods_name: "妈妈长袖",
-          goods_desc: "2018新款妈妈长袖洋气上衣服中老年女春秋装中年气质短款外套高贵",
-          goods_price: 330,
-          goods_id: "100049",
-          goods_image: "cloud:///goods/O1CN0122xEagZJDTIAVrM_!!1973837186-0-item_pic.jpg_460x460Q90.jpg",
-          shop_id: "100001",
-          buy_number: 3
-        }, {
-          goods_name: "妈妈长袖",
-          goods_desc: "2018新款妈妈长袖洋气上衣服中老年女春秋装中年气质短款外套高贵",
-          goods_price: 330,
-          goods_id: "100049",
-          goods_image: "cloud:///goods/O1CN0122xEagZJDTIAVrM_!!1973837186-0-item_pic.jpg_460x460Q90.jpg",
-          shop_id: "100001",
-          buy_number: 3
-        }],
-        all_price: 1000,
-        goods_number: 10,
-      },
-      
     ]
   },
   refreshData: function(){
+    let weak_self = this;
+    wx.showLoading({
+      title: '加载中...',
+      mask : true
+    });
     wx.cloud.callFunction({
       name: 'getOrderList',
       data: {
-        order_state : this.data.index - 1
+        order_state : weak_self.data.index - 1
       },
       success : function(res){
         console.log(res);
+        let all_result = res.result.data;
+        if(!all_result || all_result.length == 0){
+          wx.hideLoading();
+          weak_self.setData(weak_self.data);
+          return;
+        }
+        for (var i = 0; i < all_result.length;i++){
+          var goods_list = all_result[i].goods_list;
+          
+          for(var j = 0;j< goods_list.length;j++){
+            var goods = goods_list[j];
+                let index = j;
+                wx.cloud.callFunction({
+                  name: 'getGoodsDetail',
+                  data: {
+                    goods_id: goods.goods_id,
+                    detailType: 'goods_detail'
+                  },
+                  success: result => {
+                    wx.hideLoading();
+                    // console.log(result);
+                    let buy_number = goods_list[index].buy_number;
+                    goods_list[index] = result.result;
+                    goods_list[index].buy_number = buy_number;
+                    
+                     weak_self.setData({
+                       orderList: all_result
+                      });
+                    
+                  },
+                  fail: function (res) {
+                    console.log('fail');
+                  }
+                });
+          }
+        }
       }
     });
   },
@@ -142,7 +131,12 @@ Page({
     })
   },
   changePage : function(e){
+    
     let index = e.currentTarget.dataset.currentIndex;
+    console.log(index);
+    this.data.index = index;
+    this.data.orderList = [];
+    this.refreshData();
     this.setData({
       index : index
     });
