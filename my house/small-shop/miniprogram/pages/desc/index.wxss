@@ -1,7 +1,8 @@
 page{
   width: 100%;
-  background: lightgray;
+  background: rgb(231, 231, 231);
   overflow-x: hidden;
+  overflow-y: scroll;
   position: relative;
 }
 .topView{
@@ -74,7 +75,8 @@ page{
   padding-bottom: 10px;
 }
 .server_title{
-  color: lightgray;
+  color: black;
+  opacity: 0.5;
   font-size: 10px;
 }
 .server_desc{
@@ -164,4 +166,118 @@ page{
 }
 .now_buy{
   background: rgb(238, 91, 41);
+}
+
+
+/* 规格页 */
+.rank_class{
+
+  position: fixed;
+  left: 2rpx;
+  right: 2rpx;
+  top: 100vh;
+  background: rgba(255, 255, 255, 0);
+  height: 100vh;
+  
+}
+.rank_class .desc{
+  height: 80vh;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top:  20vh;
+  background: lightgrey;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  position: relative;
+}
+.rank_goods_desc{
+  height: 100px;
+  width: 750rpx;
+  /* background: rebeccapurple; */
+}
+.rank_goods_desc .goods{
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+}
+.rank_detail{
+  position: absolute;
+  right: 0px;
+  left: 100px;
+  top: 0px;
+  /* background: cyan; */
+  height: 90px;
+  display: inline-block;
+}
+.close{
+  width: 15px;
+  height: 15px;
+  right: 10px;
+  top: 5px;
+  position: absolute;
+}
+.price{
+  color: rgb(188, 75, 89);
+  font-size: 13px;
+  margin-top: 30px;
+  height: 20px;
+  display: block;
+}
+.rank_title_desc{
+
+  color: black;
+  font-size: 12px;
+  display: block;
+  height: 30px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+
+}
+.rank_desc_title{
+  font-size: 15px;
+}
+.rank_button_view{
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  border-radius: 8px;
+  color: black;
+  background: lightgray;
+}
+.rank_button_select_view{
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  border-radius: 8px;
+  color: rgb(238, 91, 41);
+  border: 1px solid rgb(238, 91, 41);
+  background: lightgray;
+}
+.sureRankAction{
+  width: 700rpx;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 17px;
+  position: absolute;
+  bottom: 5px;
+  /* top: 360px; */
+ 
+  left: 25rpx;
+  color: white;
+  background: rgb(238, 91, 41);
+}
+.rackDescScroller{
+  width: 700rpx;
+  margin: 0 auto;
+  margin-bottom: 45px;
+  /* background: yellow; */
 }

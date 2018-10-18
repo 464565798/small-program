@@ -6,6 +6,7 @@ Page({
   data: {
     goodsId:0,
     goods_desc: {
+      goods_image : '',
       goods_images: [], 
       goods_detail: [
       ],
@@ -31,8 +32,11 @@ Page({
     desc_image:[
 
     ],
-    windowWidth:750,
-    imagesScale: [{ width: 0, height: 0 }, { width: 0, height: 0 }, { width: 0, height: 0}]
+    windowWidth:375,
+    imagesScale: [{ width: 0, height: 0 }, { width: 0, height: 0 }, { width: 0, height: 0}],
+    rankAnimation : null,
+    windowHeight:0,
+    rankMode:true
   },
 
   /**
@@ -42,6 +46,9 @@ Page({
     wx.setNavigationBarTitle({
       title: '商品详情'
     });
+
+    this.animation = wx.createAnimation()
+  
     console.log('页面参数' + options.goodId);
     if (options.goodId) {
       this.setData({
@@ -52,8 +59,10 @@ Page({
     wx.getSystemInfo({
       success: function(res) {
         let ww = res.windowWidth;
+        console.log(ww);
         weak_self.setData({
-          windowWidth : ww
+          windowWidth : ww,
+          windowHeight: res.windowHeight
         });
 
       },
@@ -176,7 +185,11 @@ Page({
   },
   //规格选择
   server_rank : function(){
-
+    this.animation.translate(0, -this.data.windowHeight).step()
+    this.setData({ 
+      rankAnimation: this.animation.export(),
+      rankMode : false
+      })
   },
   bottomAction : function(e){
     let targetType = e.currentTarget.dataset.type;
@@ -194,6 +207,16 @@ Page({
       break;
     }
 
-  }
+  },
+  touchMask:function(){
+    this.animation.translate(0, this.data.windowHeight).step()
+    this.setData({
+      rankAnimation: this.animation.export(),
+      rankMode: true
+    })
+  },
+  touchView : function(){},
+
+
 
 })

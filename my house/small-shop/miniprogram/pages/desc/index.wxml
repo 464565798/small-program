@@ -28,7 +28,7 @@
         {{item}}
       </view>
   </view>
-  <view wx:if='{{goods_rank_list}}' bindtap='server_rank'>
+  <view wx:if='{{goods_desc.goods_rank_list}}' bindtap='server_rank'>
     <text class='server_title'>选择　</text>
     <text class='server_desc' wx:if='{{rank_desc.selected}}'>已选　{{rank_desc.title}}</text>
     <text class='server_desc' wx:else>请选择　规格</text>
@@ -58,4 +58,32 @@
   </view>
   <button class='add_car' bindtap='bottomAction' data-type='add_car'>加入购物车</button>
   <button class='now_buy' bindtap='bottomAction' data-type='now_buy'>立即购买</button>
+</view>
+
+
+
+<!-- 规格选择 -->
+<view class='rank_class' animation='{{rankAnimation}}' bindtap='touchMask'>
+    
+  <view class='desc' catchtap='touchView'>
+    <view class='rank_goods_desc'>
+      <image src='{{goods_desc.goods_image}}' mode='scaleToFill' class='goods'></image>
+      <view class='rank_detail'>
+        <image class='close' src='../../resouce/close.png' bindtap='touchMask'></image>
+        <text class='price'>￥{{goods_desc.goods_price}}</text>
+    
+        <text class='rank_title_desc' wx:if='{{rank_desc.selected}}'>已选　{{rank_desc.title}}</text>
+        <text class='rank_title_desc' wx:else>请选择　规格</text>
+      </view>
+    </view>
+    <view style='height:1px;width:700rpx;background:black;margin:0 auto;'></view>
+    <scroll-view class='rackDescScroller'>
+      <view wx:for='{{goods_desc.goods_rank_list}}' wx:key='{{index}}' class='rank_desc_title'>
+        <view style='margin-left:10px;'>{{item.name}}</view>
+        <view wx:for='{{item.rank_desc}}' wx:for-item='rank_desc' class='rank_button_view'>{{rank_desc}}</view>
+      </view>
+    </scroll-view>
+    <button class='sureRankAction'>确定</button>
+  </view>
+
 </view>
