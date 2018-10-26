@@ -241,7 +241,7 @@ page{
 .rank_desc_title{
   font-size: 15px;
 }
-.rank_button_view{
+.rank_button_view,.rank_button_view_select{
   display: inline-block;
   margin-left: 10px;
   padding: 3px;
@@ -249,7 +249,13 @@ page{
   font-size: 13px;
   border-radius: 8px;
   color: black;
-  background: lightgray;
+  background: white;
+  border: 1px solid white;
+  /* background: lightgray; */
+}
+.rank_button_view_select{
+  background: rgba(238, 146, 146, 0.3);
+  border: 1px solid rgba(238, 146, 146, 1);
 }
 .rank_button_select_view{
   display: inline-block;

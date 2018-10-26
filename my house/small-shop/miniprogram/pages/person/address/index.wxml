@@ -1,7 +1,7 @@
 <!-- <image src='cloud:///goods/chabei.jpg'></image>
 <view bindtap='tap'>上传</view> -->
 <view wx:if='{{addressList.length}}'>
-  <view class='addressPage' wx:for='{{addressList}}' wx:key='{{index}}'>
+  <view class='addressPage' wx:for='{{addressList}}' wx:key='{{index}}' bindtap='bind_address' data-index='{{index}}'>
     <text class='name'>{{item.name}}</text>
     <text class='phone'>{{item.phone}}</text>
     <view class='detail'>

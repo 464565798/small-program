@@ -5,7 +5,7 @@ Page({
    */
   data: {
     addressId : '',
-    address:{}
+    address:{},
   },
 
   /**

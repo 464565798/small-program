@@ -30,7 +30,7 @@
   </view>
   <view wx:if='{{goods_desc.goods_rank_list}}' bindtap='server_rank'>
     <text class='server_title'>选择　</text>
-    <text class='server_desc' wx:if='{{rank_desc.selected}}'>已选　{{rank_desc.title}}</text>
+    <text class='server_desc' wx:if='{{rank_desc!=""}}'>已选　{{rank_desc}}</text>
     <text class='server_desc' wx:else>请选择　规格</text>
   </view>
 </view>
@@ -72,7 +72,7 @@
         <image class='close' src='../../resouce/close.png' bindtap='touchMask'></image>
         <text class='price'>￥{{goods_desc.goods_price}}</text>
     
-        <text class='rank_title_desc' wx:if='{{rank_desc.selected}}'>已选　{{rank_desc.title}}</text>
+        <text class='rank_title_desc' wx:if='{{rank_desc!=""}}'>已选　{{rank_desc}}</text>
         <text class='rank_title_desc' wx:else>请选择　规格</text>
       </view>
     </view>
@@ -80,10 +80,26 @@
     <scroll-view class='rackDescScroller'>
       <view wx:for='{{goods_desc.goods_rank_list}}' wx:key='{{index}}' class='rank_desc_title'>
         <view style='margin-left:10px;'>{{item.name}}</view>
-        <view wx:for='{{item.rank_desc}}' wx:for-item='rank_desc' class='rank_button_view'>{{rank_desc}}</view>
+        <view wx:for='{{item.rank_desc}}' wx:for-item='rank_desc' style='display:inline-block' bindtap='bindRank' data-type='{{item.name}}' data-desc='{{rank_desc}}'>
+          <view class='rank_button_view_select' wx:if="{{hadSelectRank[item.name]==rank_desc}}">
+            {{rank_desc}}
+          </view>
+          <view wx:else class='rank_button_view'>
+            {{rank_desc}}
+          </view>
+        </view>
+        
+      </view>
+      <view style='width:100%;position:relative;'>
+        <view style='margin-left:10px;display:inline-block;font-size:12px;'>购买数量</view>
+        <view style='position:absolute;right:10px;width:100px;top:0px;height:15px;'>
+          <text bindtap='reduceNunberAction' style='width:20px;font-size:12px;display:inline-block;border:1px solid black;border-radius: 3px;text-align:center;'>-</text>
+          <text style='width:20px;display:inline-block;font-size:12px;text-align:center;color:red'>{{buy_number}}</text>
+          <text bindtap='addNunberAction' style='width:20px;display:inline-block;font-size:12px;;border:1px solid black;border-radius:3px;text-align:center;'>+</text>
+        </view>
       </view>
     </scroll-view>
-    <button class='sureRankAction'>确定</button>
+    <button class='sureRankAction' bindtap='sureRankAction'>确定</button>
   </view>
 
 </view>

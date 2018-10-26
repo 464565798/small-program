@@ -14,7 +14,8 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '个人中心',
-    })
+    });
+    console.log(options);
   },
 
   /**
@@ -28,7 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    console.log(this.data.address);
   },
 
   /**

@@ -6,15 +6,19 @@ Page({
   data: {
     addressList:[
      
-    ]
+    ],
+    select_state : false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.select_state){
+      this.data.select_state = options.select_state
+    }
     wx.setNavigationBarTitle({
-      title: '管理收货地址',
+      title: options.title ? options.title : '管理收货地址'
     });
     // wx.cloud.callFunction();
   },
@@ -180,5 +184,18 @@ Page({
     wx.navigateTo({
       url: 'addAddress',
     })
+  },
+  bind_address : function(e){
+    let index = parseInt(e.currentTarget.dataset.index);
+    if(this.data.select_state){
+      let pages = getCurrentPages();
+      let prePage = pages[pages.length - 2];
+      prePage.setData({
+        address : this.data.addressList[index]
+      });
+      wx.navigateBack({
+       delta : 1
+      })
+    }
   }
 })

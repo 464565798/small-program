@@ -13,6 +13,7 @@
     "pages/czh/index",
     "pages/person/index",
     "pages/desc/index",
+    "pages/desc/order_desc/index",
     "pages/movableView/index",
     "pages/cateDescGoods/index",
 

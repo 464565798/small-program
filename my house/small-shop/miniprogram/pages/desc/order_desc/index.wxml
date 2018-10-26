@@ -1,0 +1,45 @@
+<view  wx:if='{{address}}' class='address_view'>
+  <image src='/resouce/location.png'></image>
+  <view class='addressPage'  bindtap='bind_address'>
+    <text class='name'>{{address.name}}</text>
+    <text class='phone'>{{address.phone}}</text>
+    <view class='detail'>
+      <text>{{address.addressDetail}}</text>
+    </view>
+  </view>
+</view>
+<view wx:else bindtap='bind_address' class='addAddressPage'>
+<image src='/resouce/addAddress.png'></image>
+  添加地址
+</view>
+
+<view class='rank_goods_desc'>
+      <image src='{{goods_image}}' mode='scaleToFill' class='goods'></image>
+      <view class='rank_detail'>
+        <text class='rank_title_desc_name'>{{goods_name}}</text>
+        <text class='price'>￥{{goods_price}}</text>
+        <text class='rank_title_desc' wx:if='{{rank_desc!=""}}'>已选　{{rank_desc}}</text>
+        <!-- <text class='rank_title_desc' wx:else>请选择　规格</text> -->
+      </view>
+</view>
+<view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
+  <view style='margin-left:10px;display:inline-block;font-size:12px;'>购买数量</view>
+  <view style='position:absolute;right:10px;width:100px;top:0px;height:15px;'>
+    <text bindtap='reduceNunberAction' style='width:20px;font-size:12px;display:inline-block;border:1px solid lightgrey;border-radius: 3px;text-align:center;'>-</text>
+    <text style='width:20px;display:inline-block;font-size:12px;text-align:center;color:red'>{{buy_number}}</text>
+    <text bindtap='addNunberAction' style='width:20px;display:inline-block;font-size:12px;;border:1px solid lightgrey;border-radius:3px;text-align:center;'>+</text>
+  </view>
+</view>
+<view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
+  <view style='margin-left:10px;display:inline-block;font-size:12px;'>配送方式</view>
+  <view style='position:absolute;right:10px;width:100px;top:0px;height:15px;'>
+    <text style='width:80px;display:inline-block;font-size:12px;text-align:center;color:lightgrey'>快递免邮</text>
+  </view>
+</view>
+<view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
+  <view style='margin-left:10px;display:inline-block;font-size:12px;width:100rpx;'>买家留言</view>
+  <view style='position:absolute;right:10px;top:0px;height:12px;display:inline-block;width:500rpx;'>
+    <input type='text' style='width:500rpx;font-size:12px;color:black' placeholder='填写内容已和商家确认'></input>
+  </view>
+</view>
+

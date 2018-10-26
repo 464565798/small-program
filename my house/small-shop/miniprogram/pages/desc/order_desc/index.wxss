@@ -1,0 +1,102 @@
+page{
+  background: lightgrey;
+}
+.address_view{
+  width: 700rpx;
+  padding: 20rpx;
+  margin-top: 0px;
+  overflow: hidden;
+  background: white;
+  border: 5rpx solid lightgrey;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.address_view image{
+  width: 35rpx;
+  height: 35rpx;
+}
+.addressPage{
+  /* margin-left: 10px; */
+  display: inline-block;
+}
+
+.name,.phone{
+  font-size: 13px;
+  color: black;
+}
+.phone{
+  margin-left: 30px;
+}
+.detail{
+  width: 650rpx;
+  font-size: 11px;
+  color: rgb(145, 137, 137);
+}
+
+.addAddressPage{
+  width: 740rpx;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+  margin: 0 auto;
+  border: 5rpx solid lightgrey;
+}
+.addAddressPage image{
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+
+/* //商品信息 */
+.rank_goods_desc{
+  height: 100px;
+  width: 750rpx;
+  position: relative;
+  background: white;
+  /* background: rebeccapurple; */
+}
+.rank_goods_desc .goods{
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+}
+.rank_detail{
+  position: absolute;
+  right: 0px;
+  left: 100px;
+  top: 10px;
+  /* background: cyan; */
+  height: 80px;
+  display: inline-block;
+}
+.price{
+  color: rgb(188, 75, 89);
+  font-size: 13px;
+  margin-top: 5px;
+  height: 20px;
+  display: block;
+}
+
+.rank_title_desc,.rank_title_desc_name{
+
+  color: black;
+  font-size: 12px;
+  display: block;
+  height: 20px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  align-content: center;
+
+}
+.rank_title_desc_name{
+  height: 35px;
+  -webkit-line-clamp: 2;
+}
