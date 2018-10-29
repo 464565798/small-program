@@ -7,6 +7,12 @@ App({
     } else {
       wx.cloud.init({
         traceUser: true,
+        fail : function(){
+          console.log('fail');
+        },
+        success : function(){
+          console.log('success');
+        }
       })
     }
   },

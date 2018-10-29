@@ -94,7 +94,7 @@
         <view style='margin-left:10px;display:inline-block;font-size:12px;'>购买数量</view>
         <view style='position:absolute;right:10px;width:100px;top:0px;height:15px;'>
           <text bindtap='reduceNunberAction' style='width:20px;font-size:12px;display:inline-block;border:1px solid black;border-radius: 3px;text-align:center;'>-</text>
-          <text style='width:20px;display:inline-block;font-size:12px;text-align:center;color:red'>{{buy_number}}</text>
+          <text style='width:20px;display:inline-block;font-size:12px;text-align:center;color:rgb(188, 75, 89)'>{{buy_number}}</text>
           <text bindtap='addNunberAction' style='width:20px;display:inline-block;font-size:12px;;border:1px solid black;border-radius:3px;text-align:center;'>+</text>
         </view>
       </view>

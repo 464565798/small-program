@@ -255,7 +255,7 @@ page{
 }
 .rank_button_view_select{
   background: rgba(238, 146, 146, 0.3);
-  border: 1px solid rgba(238, 146, 146, 1);
+  border: 1px solid rgb(188, 75, 89);
 }
 .rank_button_select_view{
   display: inline-block;
@@ -264,8 +264,8 @@ page{
   margin-bottom: 5px;
   font-size: 13px;
   border-radius: 8px;
-  color: rgb(238, 91, 41);
-  border: 1px solid rgb(238, 91, 41);
+  color: rgb(188, 75, 89);
+  border: 1px solid rgb(188, 75, 89);
   background: lightgray;
 }
 .sureRankAction{

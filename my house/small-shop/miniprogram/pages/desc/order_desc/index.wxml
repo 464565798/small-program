@@ -12,17 +12,16 @@
 <image src='/resouce/addAddress.png'></image>
   添加地址
 </view>
-
-<view class='rank_goods_desc'>
+<block  wx:if='{{!isCar}}'>
+  <view class='rank_goods_desc'>
       <image src='{{goods_image}}' mode='scaleToFill' class='goods'></image>
       <view class='rank_detail'>
         <text class='rank_title_desc_name'>{{goods_name}}</text>
         <text class='price'>￥{{goods_price}}</text>
         <text class='rank_title_desc' wx:if='{{rank_desc!=""}}'>已选　{{rank_desc}}</text>
-        <!-- <text class='rank_title_desc' wx:else>请选择　规格</text> -->
       </view>
-</view>
-<view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
+  </view>
+  <view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
   <view style='margin-left:10px;display:inline-block;font-size:12px;'>购买数量</view>
   <view style='position:absolute;right:10px;width:100px;top:0px;height:15px;'>
     <text bindtap='reduceNunberAction' style='width:20px;font-size:12px;display:inline-block;border:1px solid lightgrey;border-radius: 3px;text-align:center;'>-</text>
@@ -30,6 +29,28 @@
     <text bindtap='addNunberAction' style='width:20px;display:inline-block;font-size:12px;;border:1px solid lightgrey;border-radius:3px;text-align:center;'>+</text>
   </view>
 </view>
+</block>
+<block wx:else>
+  <block wx:for="{{goods_list}}" wx:key="{{index}}">
+    <view class='rank_goods_desc'>
+      <image src='{{item.goods_image}}' mode='scaleToFill' class='goods'></image>
+      <view class='rank_detail'>
+        <text class='rank_title_desc_name'>{{itemgoods_name}}</text>
+        <text class='price'>￥{{item.goods_price}}</text>
+        <text class='rank_title_desc' wx:if='{{rank_desc!=""}}'>已选　{{item.rank_desc}}</text>
+      </view>
+    </view>
+    <view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
+    <view style='margin-left:10px;display:inline-block;font-size:12px;'>购买数量</view>
+      <view style='position:absolute;right:10px;width:100px;top:0px;height:15px;'>
+        <text bindtap='reduceNunberAction' style='width:20px;font-size:12px;display:inline-block;border:1px solid lightgrey;border-radius: 3px;text-align:center;' data-index='{{index}}'>-</text>
+        <text style='width:20px;display:inline-block;font-size:12px;text-align:center;color:red'>{{item.buy_number}}</text>
+        <text bindtap='addNunberAction' style='width:20px;display:inline-block;font-size:12px;;border:1px solid lightgrey;border-radius:3px;text-align:center;' data-index='{{index}}'>+</text>
+      </view>
+    </view>
+  </block>
+</block>
+
 <view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
   <view style='margin-left:10px;display:inline-block;font-size:12px;'>配送方式</view>
   <view style='position:absolute;right:10px;width:100px;top:0px;height:15px;'>
@@ -38,8 +59,16 @@
 </view>
 <view style='position:relative;background: white;margin-top:5px;padding-bottom:5px;'>
   <view style='margin-left:10px;display:inline-block;font-size:12px;width:100rpx;'>买家留言</view>
-  <view style='position:absolute;right:10px;top:0px;height:12px;display:inline-block;width:500rpx;'>
+  <view style='position:absolute;right:10px;top:0px;bottom:0px;display:inline-block;width:500rpx;align-items: center;justify-content: center;display: flex;align-content: center;'>
     <input type='text' style='width:500rpx;font-size:12px;color:black' placeholder='填写内容已和商家确认'></input>
   </view>
+</view>
+
+<!-- 购买 -->
+<view class='bottm_buy'>
+  
+  <text class='bottom_lab'>合计金额：</text>
+  <text class='bottom_price'>￥{{all_price}}</text>
+  <button class='now_buy' bindtap='submit_order' data-type='now_buy'>提交订单</button>
 </view>
 

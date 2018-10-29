@@ -1,13 +1,16 @@
 page{
   background: lightgrey;
+  padding-bottom: 50px;
 }
 .address_view{
-  width: 700rpx;
+  width: 740rpx;
   padding: 20rpx;
-  margin-top: 0px;
+  /* margin-top: 0px; */
+  margin: 0 auto;
   overflow: hidden;
   background: white;
-  border: 5rpx solid lightgrey;
+  margin-bottom: 5rpx;
+  /* border: 5rpx solid lightgrey; */
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -43,7 +46,7 @@ page{
   display: flex;
   font-size: 15px;
   margin: 0 auto;
-  border: 5rpx solid lightgrey;
+  /* border: 5rpx solid lightgrey; */
 }
 .addAddressPage image{
   width: 60px;
@@ -99,4 +102,40 @@ page{
 .rank_title_desc_name{
   height: 35px;
   -webkit-line-clamp: 2;
+}
+
+
+/* 提交订单 */
+.bottm_buy{
+
+  background: white;
+  height: 50px;
+  display: flex;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  justify-content: center;
+  align-items: center;
+}
+.bottm_buy button{
+  color: white;
+  margin-right: 0px;
+  width: 290rpx;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.now_buy{
+  background: rgb(238, 91, 41);
+}
+.bottom_lab{
+  margin-left: 20px;
+  font-size: 12px;
+  color: black;
+}
+.bottom_price{
+  color: rgb(188, 75, 89);
+  font-size: 13px;
 }

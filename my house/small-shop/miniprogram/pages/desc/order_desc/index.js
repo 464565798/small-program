@@ -4,6 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isCar:false,
+    goods_list : [],
     goods_id:null,
     goods_image : "",
     goods_name : "",
@@ -71,27 +73,82 @@ Page({
       url: '../../person/address/index?select_state=' + 1 + "&title=" + '选择收货地址',
     })
   },
-  reduceNunberAction: function () {
-    var current_number = this.data.buy_number;
-    if (current_number == 1) {
+  reduceNunberAction: function (e) {
+    if(this.data.isCar){
+      let index = e.currentTarget.dataset.index;
+      var current_number = this.data.goods_list[index].buy_number - 1;
+      if (this.data.goods_list[index].buy_number < 1) {
+        return;
+      }
+      this.data.goods_list[index].buy_number = current_number;
+      this.data.all_price = this.data.all_price - this.data.goods_list[index].goods_price;
+      this.setData(this.data);
+      return;
+    }
+    var current_number = this.data.buy_number - 1;
+    if (current_number < 1) {
       return;
     }
     this.setData({
       all_price : current_number * this.data.goods_price,
-      buy_number: current_number - 1
+      buy_number: current_number
     });
   },
-  addNunberAction: function () {
-    var current_number = this.data.buy_number;
-    if (current_number == 99) {
+  addNunberAction: function (e) {
+    if (this.data.isCar) {
+      let index = e.currentTarget.dataset.index;
+      var current_number = this.data.goods_list[index].buy_number + 1;
+      if (this.data.goods_list[index].buy_number > 99) {
+        return;
+      }
+      this.data.goods_list[index].buy_number = current_number;
+      this.data.all_price = this.data.all_price + this.data.goods_list[index].goods_price;
+      this.setData(this.data);
+      return;
+    }
+    var current_number = this.data.buy_number+1;
+    if (current_number > 99) {
       return;
     }
     this.setData({
       all_price: current_number * this.data.goods_price,
-      buy_number: current_number + 1
+      buy_number: current_number
     });
-  }
+  },
+  submit_order : function(){
   
+    var order_desc={};
+    var goods_list = [];
+    
+    if(!this.data.isCar){
 
+      var goods={};
+      goods.goods_id = this.data.goods_id;
+      goods.buy_number = this.data.buy_number;
+      goods_list.push(goods);
+    }else{
+      for(var i = 0;i<this.data.goods_list.length;i++){
+        var goods = {};
+        goods.goods_id = this.data.goods_list[i].goods_id;
+        goods.buy_number = this.data.goods_list[i].buy_number;
+        goods_list.push(goods);
+      } 
+    }
+    order_desc.goods_list = goods_list;
+    order_desc.all_price = this.data.all_price;
+    var order = JSON.stringify(order_desc);
+    wx.showModal({
+      title: '提示',
+      content: order,
+      success: function (res) {
+        if (res.confirm) {
+          wx.showToast({
+            title: '暂未开放',
+            icon: 'none'
+          })
+        }
+      }
+    })
+  }
 
 })
