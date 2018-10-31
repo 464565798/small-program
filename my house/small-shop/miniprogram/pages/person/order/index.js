@@ -28,12 +28,13 @@ Page({
           weak_self.setData(weak_self.data);
           return;
         }
+        
         for (var i = 0; i < all_result.length;i++){
           var goods_list = all_result[i].goods_list;
-          
+          var count = 0;
           for(var j = 0;j< goods_list.length;j++){
             var goods = goods_list[j];
-                let index = j;
+                count += goods.buy_number;
                 wx.cloud.callFunction({
                   name: 'getGoodsDetail',
                   data: {
@@ -42,24 +43,45 @@ Page({
                   },
                   success: result => {
                     wx.hideLoading();
-                    // console.log(result);
-                    let buy_number = goods_list[index].buy_number;
-                    goods_list[index] = result.result;
-                    goods_list[index].buy_number = buy_number;
                     
-                     weak_self.setData({
-                       orderList: all_result
-                      });
-                    
+                    weak_self.insertIntoGoods(result.result);
+
                   },
                   fail: function (res) {
                     console.log('fail');
                   }
                 });
           }
+          all_result[i].goods_number = count;
+            console.log(all_result);
         }
+        weak_self.setData({
+          orderList: all_result
+        });
       }
     });
+  },
+  insertIntoGoods:function(goodsDetail){
+    
+    let all_result = this.data.orderList;
+    for (var i = 0; i < all_result.length; i++) {
+      var goods_list = all_result[i].goods_list;
+    
+      for (var j = 0; j < goods_list.length; j++) {
+        var goods = goods_list[j];
+        if(goods.goods_id == goodsDetail.goods_id){
+          console.log('相等');
+          let buy_number = goods.buy_number;
+          goods = goodsDetail;
+          goods.buy_number = buy_number;
+          goods_list[j] = goods;
+          console.log(goods_list);
+          this.setData({
+            orderList: all_result
+          });
+        }
+      }
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -174,7 +196,18 @@ Page({
     console.log(e);
     switch(orderState){
       case 0: //去支付
-
+        wx.showModal({
+          title: '提示',
+          content: order,
+          success: function (res) {
+            if (res.confirm) {
+              wx.showToast({
+                title: '暂未开放',
+                icon: 'none'
+              })
+            }
+          }
+        })
         break;
       case 1: //确认收货
       {

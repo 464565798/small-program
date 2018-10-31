@@ -39,7 +39,9 @@ Page({
     imagesScale: [{ width: 0, height: 0 }, { width: 0, height: 0 }, { width: 0, height: 0}],
     rankAnimation : null,
     windowHeight:0,
-    rankMode:true
+    rankMode:true,
+    // 0 -无跳转  1 - 购物车  2- 订单
+    skipType : 0
   },
 
   /**
@@ -181,21 +183,37 @@ Page({
         
       break;
       case 'add_car':
+        this.goBuyCar();
       break;
       case 'now_buy':
-        if(this.rankComplete()){
-
-          wx.navigateTo({
-            url: 'order_desc/index?goods_image=' + this.data.goods_desc.goods_image + "&goods_id=" + this.data.goods_desc.goods_id + "&goods_price=" + this.data.goods_desc.goods_price + "&goods_name=" + this.data.goods_desc.goods_desc + "&rank_desc=" + this.data.rank_desc + "&buy_number=" + this.data.buy_number
-          })
-        }else{
-          this.server_rank();
-        }
+        this.goOrderController();
       break;
     }
 
   },
+  goBuyCar : function(){
+    if (this.rankComplete()) {
+      wx.navigateTo({
+        url: '/pages/person/buyCar/index'
+      })
+    } else {
+      this.data.skipType = 1;
+      this.server_rank();
+    }
+  },
+  goOrderController:function(){
+    if (this.rankComplete()) {
+
+      wx.navigateTo({
+        url: 'order_desc/index?goods_image=' + this.data.goods_desc.goods_image + "&goods_id=" + this.data.goods_desc.goods_id + "&goods_price=" + this.data.goods_desc.goods_price + "&goods_name=" + this.data.goods_desc.goods_desc + "&rank_desc=" + this.data.rank_desc + "&buy_number=" + this.data.buy_number
+      })
+    } else {
+      this.data.skipType = 2;
+      this.server_rank();
+    }
+  },
   touchMask:function(){
+    this.data.skipType = 0;
     this.animation.translate(0, this.data.windowHeight).step()
     this.setData({
       rankAnimation: this.animation.export(),
@@ -239,6 +257,12 @@ Page({
   sureRankAction : function(){
     
     if(this.rankComplete()){
+      console.log(this.data.skipType);
+      if (this.data.skipType == 1) {
+        this.goBuyCar();
+      } else if (this.data.skipType == 2) {
+        this.goOrderController();
+      }
       this.touchMask();
     }else{
       wx.showToast({

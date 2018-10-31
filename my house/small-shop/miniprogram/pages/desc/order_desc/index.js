@@ -137,18 +137,22 @@ Page({
     order_desc.goods_list = goods_list;
     order_desc.all_price = this.data.all_price;
     var order = JSON.stringify(order_desc);
-    wx.showModal({
-      title: '提示',
-      content: order,
-      success: function (res) {
-        if (res.confirm) {
-          wx.showToast({
-            title: '暂未开放',
-            icon: 'none'
-          })
-        }
+    wx.cloud.callFunction({
+      name: 'submitOrder',
+      data :{
+        orderDesc : order
+      },
+      success : res =>{
+        console.log(res);
+        wx.navigateTo({
+          url: '/pages/person/order/index',
+        })
+      },
+      fail : res => {
+        console.log(res);
       }
-    })
+    });
+    
   }
 
 })

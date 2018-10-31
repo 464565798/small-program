@@ -11,11 +11,11 @@ exports.main = async (event, context) => {
     return cloud.database().collection('order_list').where({
       _openid : openId,
     
-    }).get();
+    }).orderBy('orderTime','desc').get();
   }else{
     return cloud.database().collection('order_list').where({
       _openid: openId,
       state : order_state
-    }).get();
+    }).orderBy('orderTime', 'desc').get();
   }
 }
