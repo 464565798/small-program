@@ -3,7 +3,7 @@ page{
   padding-bottom: 50px;
 }
 .address_view{
-  width: 740rpx;
+  width: 710rpx;
   padding: 20rpx;
   /* margin-top: 0px; */
   margin: 0 auto;

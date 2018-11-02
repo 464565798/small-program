@@ -55,6 +55,12 @@
         "selectedIconPath": "resouce/icon_chezhihui_H.png"
       },
       {
+        "pagePath": "pages/person/buyCar/index",
+        "text": "购物车",
+        "iconPath": "resouce/icon_chezhihui_N.png",
+        "selectedIconPath": "resouce/icon_chezhihui_H.png"
+      },
+      {
         "pagePath": "pages/person/index",
         "text": "我的",
         "iconPath": "resouce/icon_mine_N.png",

@@ -1,0 +1,21 @@
+<view>
+  <view wx:for="{{orderList}}" wx:key="{item._id}">
+    <view class='shop_title' bindtap='bind_shop_title' data-shop-id='{{item.shop_id}}'>
+      <image wx:if='{{item.hadSelect}}' src="/resouce/person/select_on.png" class='select_circle' catchtap='select_shop' data-index='{{index}}'></image>
+      <image wx:else src="/resouce/person/select_off.png" class='select_circle' catchtap='select_shop' data-index='{{index}}'></image>
+      <image src='/resouce/person/shop.png' class='shop_image'></image>
+      <text class='shop_name'>{{shopNameList[item.shop_id]}}</text>
+    </view>
+    <view>
+      <image></image>
+      <view>
+        <image></image>
+        <text></text>
+        <text></text>
+        <view>
+          <text></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

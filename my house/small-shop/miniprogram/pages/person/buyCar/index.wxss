@@ -1,0 +1,40 @@
+
+.shop_title{
+  background: lightblue;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  height: 30px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  
+  /* align-content: center;
+  justify-content: center;
+  align-items: center;
+  display: flex; */
+}
+.select_circle{
+
+  vertical-align:middle;
+  width: 15px;
+  height: 15px;
+
+}
+.shop_image{
+
+  vertical-align:middle;
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+}
+.shop_name{
+  vertical-align:middle;
+  
+  display: inline-block;
+  padding: 0px;
+  margin-left: 5px;
+  color: black;
+  font-size: 12px;
+  background: cyan;
+}
