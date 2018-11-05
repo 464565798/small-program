@@ -1,13 +1,29 @@
-
+.goods_sup_view{
+  position: absolute;
+  left: 30rpx;
+  top: 0px;
+  right: 30rpx;
+  bottom: 40px;
+  /* background: rebeccapurple; */
+}
+.shop_goods_view{
+  border-radius: 8px;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  background: rgb(245, 237, 237);
+  width: 690rpx;
+  overflow: hidden;
+}
 .shop_title{
   background: lightblue;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 5px;
+  padding-right: 5px;
   height: 30px;
-  justify-content: center;
+  /* justify-content: center;
   align-content: center;
-  align-items: center;
+  align-items: center; */
   
   /* align-content: center;
   justify-content: center;
@@ -36,5 +52,66 @@
   margin-left: 5px;
   color: black;
   font-size: 12px;
-  background: cyan;
+}
+
+/* //商品详情 */
+.goods_view{
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 5px;  
+
+}
+.goods_detail{
+  vertical-align:middle;
+  display: inline-block;
+  margin-left: 10px;
+}
+.goods_detail image{
+  width: 100px;
+  height: 100px;
+}
+/* //立即购买 */
+.bottom_view{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: rgb(250, 250, 250);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 30px;
+  padding-left: 10px;
+}
+/* .bottom_view button{
+  color: white;
+  margin-right: 0px;
+  width: 290rpx;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+} */
+.now_buy{
+  /* vertical-align: middle; */
+  display: inline-block;
+  background: rgb(238, 91, 41);
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  line-height: 30px;
+  text-align: center;
+  position: absolute;
+  color: white;
+  right: 15px;
+}
+.bottom_lab{
+  margin-left: 20px;
+  font-size: 12px;
+  line-height: 30px;
+  color: black;
+}
+.bottom_price{
+  line-height: 30px;
+  color: rgb(188, 75, 89);
+  font-size: 13px;
 }

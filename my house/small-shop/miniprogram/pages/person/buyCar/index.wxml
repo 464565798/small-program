@@ -1,15 +1,16 @@
-<view>
-  <view wx:for="{{orderList}}" wx:key="{item._id}">
+<scroll-view class='goods_sup_view' scroll-y>
+  <view wx:for="{{orderList}}" wx:key="{{item._id}}" class='shop_goods_view'>
     <view class='shop_title' bindtap='bind_shop_title' data-shop-id='{{item.shop_id}}'>
       <image wx:if='{{item.hadSelect}}' src="/resouce/person/select_on.png" class='select_circle' catchtap='select_shop' data-index='{{index}}'></image>
       <image wx:else src="/resouce/person/select_off.png" class='select_circle' catchtap='select_shop' data-index='{{index}}'></image>
       <image src='/resouce/person/shop.png' class='shop_image'></image>
       <text class='shop_name'>{{shopNameList[item.shop_id]}}</text>
     </view>
-    <view>
-      <image></image>
-      <view>
-        <image></image>
+    <view wx:for="{{item.goods_list}}" wx:for-item="goods" wx:for-index="indexKey" wx:key="{{goods.goods_id}}" class='goods_view'>
+      <image wx:if='{{goods.hadSelect}}' src="/resouce/person/select_on.png" class='select_circle' catchtap='select_good' data-index='{{index}}' data-row='{{indexKey}}'></image>
+      <image wx:else src="/resouce/person/select_off.png" class='select_circle' catchtap='select_good' data-index='{{index}}' data-row='{{indexKey}}'></image>
+      <view class='goods_detail'>
+        <image wx:if="{{goodDetailList[goods.goods_id].goods_image}}" class='goods_image' src='{{goodDetailList[goods.goods_id].goods_image}}'></image>
         <text></text>
         <text></text>
         <view>
@@ -18,4 +19,11 @@
       </view>
     </view>
   </view>
+</scroll-view>
+<view class='bottom_view'>
+  <image wx:if='{{selectAll}}' src="/resouce/person/select_on.png" class='select_circle' catchtap='select_all'></image>
+  <image wx:else src="/resouce/person/select_off.png" class='select_circle' catchtap='select_all'></image>
+  <text class='bottom_lab'>合计金额：</text>
+  <text class='bottom_price'>￥{{allMoney}}</text>
+  <view class='now_buy' bindtap='submit_order' data-type='now_buy'>结算</view>
 </view>

@@ -15,6 +15,9 @@ exports.main = async (event, context) => {
     case 'goods_detail':
       detail = getDetail(goods_id);
       break;
+    case 'goods_simple':
+      detail = getDetailSimple(goods_id);
+      break;
     default:
       return '发生错误';
       break;
@@ -52,3 +55,19 @@ function getCommentDetail(goods_id){
     else return [];
   });
 }
+function getDetailSimple(goods_id){
+   return cloud.database().collection('goods_list').where({
+     goods_id: goods_id
+   }).field({
+     goods_price: true,
+     goods_desc: true,
+     goods_id: true,
+     shop_id: true,
+     goods_name: true,
+     goods_image: true,
+   }).get().then(res => {
+     if (res.data.length)
+       return res.data[0];
+     else return {};
+   });
+ }
