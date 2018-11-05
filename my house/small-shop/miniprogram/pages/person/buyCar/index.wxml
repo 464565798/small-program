@@ -9,10 +9,14 @@
     <view wx:for="{{item.goods_list}}" wx:for-item="goods" wx:for-index="indexKey" wx:key="{{goods.goods_id}}" class='goods_view'>
       <image wx:if='{{goods.hadSelect}}' src="/resouce/person/select_on.png" class='select_circle' catchtap='select_good' data-index='{{index}}' data-row='{{indexKey}}'></image>
       <image wx:else src="/resouce/person/select_off.png" class='select_circle' catchtap='select_good' data-index='{{index}}' data-row='{{indexKey}}'></image>
-      <view class='goods_detail'>
-        <image wx:if="{{goodDetailList[goods.goods_id].goods_image}}" class='goods_image' src='{{goodDetailList[goods.goods_id].goods_image}}'></image>
-        <text></text>
-        <text></text>
+      <view class='goods_detail' catchtap='bind_tap_goods' data-goods-id='{{goods.goods_id}}'>
+        <image wx:if="{{goodDetailList[goods.goods_id].goods_image}}" mode='scaleToFill' class='goods_image' src='{{goodDetailList[goods.goods_id].goods_image}}'></image>
+        <view class='rank_detail'>
+        <text class='title'>{{goodDetailList[goods.goods_id].goods_desc}}</text>
+        <text class='rank_title_desc' wx:if='{{rank_desc!=""}}'>已选　{{rank_desc}}</text>
+        <text class='rank_title_desc' wx:else>请选择　规格</text>
+        <text class='price'>￥{{goodDetailList[goods.goods_id].goods_price}}</text>
+        </view>
         <view>
           <text></text>
         </view>

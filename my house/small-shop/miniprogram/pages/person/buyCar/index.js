@@ -146,23 +146,6 @@ Page({
   onShareAppMessage: function () {
     
   },
-  // allPrice : function(){
-  //   var all_price = 0;
-  //   var all_number = 0;
-  //   for (var i = 0; i < this.data.orderList.length; i++) {
-  //     let list = this.data.orderList[i];
-  //     all_price += list.all_price;
-  //     for (var j = 0; j < list.goods_list.length; j++) {
-  //       all_number += list.goods_list[j].buy_number;
-  //     }
-  //     console.log(this.data.orderList + '-' +  i);
-  //   }
-  //   console.log(this.data.orderList);
-  //   this.setData({
-  //     allMoney : all_price,
-  //     allNumber : all_number
-  //   });
-  // },
   select_good : function(res){
     let index = res.currentTarget.dataset.index;
     let goods_index = res.currentTarget.dataset.row;
@@ -180,7 +163,19 @@ Page({
         break;
       }
     }
-
+    
+    if(list.hadSelect){
+      var select_all_shop = true;
+      for (var i = 0; i < this.data.orderList.length; i++) {
+        if(!this.data.orderList[i].hadSelect){
+          select_all_shop = false;
+          break;
+        }
+      }
+      this.data.selectAll = select_all_shop;
+    } else {
+      this.data.selectAll = false;
+    }
     this.data.orderList[index] = list;
     this.setShopAllPrice(); 
     this.setData(this.data);
@@ -196,11 +191,39 @@ Page({
       let good = list.goods_list[i];
       good.hadSelect = list.hadSelect;
     }
+    if (list.hadSelect) {
+      var select_all_shop = true;
+      for (var i = 0; i < this.data.orderList.length; i++) {
+        if (!this.data.orderList[i].hadSelect) {
+          select_all_shop = false;
+          break;
+        }
+      }
+      this.data.selectAll = select_all_shop;
+    }else{
+      this.data.selectAll = false;
+    }
     this.setShopAllPrice();
     // this.allPrice();
     this.data.orderList[index] = list; 
     this.setData(this.data);
   },
+  select_all : function(){
+    this.data.selectAll = !this.data.selectAll;
+    for (var i = 0; i < this.data.orderList.length; i++) {
+      let list = this.data.orderList[i];
+      list.hadSelect = this.data.selectAll;
+      this.data.orderList[i] = list;
+      for (var j = 0; j < list.goods_list.length; j++) {
+        let good = list.goods_list[j];
+        good.hadSelect = this.data.selectAll;
+        list.goods_list[j] = good;
+      }
+    }
+    this.setData(this.data);
+    this.setShopAllPrice();
+  },
+  //总结价格
   setShopAllPrice : function(){
     var all_price = 0;
     var all_number = 0;
@@ -208,7 +231,7 @@ Page({
       var all_money = 0;
       let list = this.data.orderList[i];
       for (var j = 0; j < list.goods_list.length; j++) {
-        let good = list.goods_list[i];
+        let good = list.goods_list[j];
         if(good.hadSelect){
           all_number += good.buy_number;
           all_money += this.data.goodDetailList[good.goods_id].goods_price * good.buy_number;
@@ -219,12 +242,20 @@ Page({
       this.data.orderList[i] = list;
       
     }
-    this.data.all_price = all_price;
-    this.data.all_number = all_number;
+
+    this.data.allMoney = all_price;
+    this.data.allNumber = all_number;
     this.setData(this.data);
   },
   bind_shop_title : function (res){
     let shopId = res.currentTarget.dataset.shopId;
     console.log('点击了shop_id=' + shopId);
+  },
+  // 点击商品
+  bind_tap_goods : function(res){
+    let goodsId = res.currentTarget.dataset.goodsId;
+    wx.navigateTo({
+      url: '../../desc/index?goodId=' + goodsId,
+    })
   }
 })
