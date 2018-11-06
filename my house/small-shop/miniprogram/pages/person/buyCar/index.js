@@ -39,6 +39,7 @@ Page({
     let weak_self = this;
     db.collection("goods_car_list").get({
       success: res => {
+        wx.stopPullDownRefresh();
         weak_self.data.orderList = res.data;
         weak_self.setData(weak_self.data);
         weak_self.getShopName();
@@ -46,6 +47,7 @@ Page({
         console.log(weak_self.data);  
       },
       error: res => {
+        wx.stopPullDownRefresh();
         wx.showModal({
           title: 'error',
           content: '加载失败',
@@ -130,7 +132,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    this.refreshData();
   },
 
   /**

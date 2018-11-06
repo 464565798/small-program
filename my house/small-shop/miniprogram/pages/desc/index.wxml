@@ -1,6 +1,6 @@
 <view style='height:10px;background:white;width100%'></view>
 <swiper autoplay='{{false}}' indicator-dots='{{false}}' class='topView'>
-      <block wx:for='{{goods_desc.goods_images}}'  wx:key='*this'>
+      <block wx:for='{{goods_desc.goods_images}}'  wx:key='{{item}}'>
       <swiper-item>
         <view>
           <image src='{{item}}' bindload='loadImage' id='{{index}}' style='width:{{imagesScale[index].width}}rpx;height:{{imagesScale[index].height}}rpx;display: block;margin: 0 auto;'/>
@@ -42,7 +42,7 @@
   </view>
 </view>
 <view class='goods_desc'>———— 商品详情 ————</view>
-<view class='commonView' wx:for='{{goods_desc.goods_detail}}' wx:key='desc'>    
+<view class='commonView' wx:for='{{goods_desc.goods_detail}}' wx:key='{{index}}'>    
     <image src='{{item}}' mode='widthFix'></image>
 </view>
 <view style='height:50px;width100%;'></view>
@@ -80,7 +80,7 @@
     <scroll-view class='rackDescScroller'>
       <view wx:for='{{goods_desc.goods_rank_list}}' wx:key='{{index}}' class='rank_desc_title'>
         <view style='margin-left:10px;'>{{item.name}}</view>
-        <view wx:for='{{item.rank_desc}}' wx:for-item='rank_desc' style='display:inline-block' bindtap='bindRank' data-type='{{item.name}}' data-desc='{{rank_desc}}'>
+        <view wx:for='{{item.rank_desc}}' wx:key='{{index}}' wx:for-item='rank_desc' style='display:inline-block' bindtap='bindRank' data-type='{{item.name}}' data-desc='{{rank_desc}}'>
           <view class='rank_button_view_select' wx:if="{{hadSelectRank[item.name]==rank_desc}}">
             {{rank_desc}}
           </view>

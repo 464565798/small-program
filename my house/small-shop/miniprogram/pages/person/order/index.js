@@ -165,13 +165,31 @@ Page({
   },
   cancelOrderAction : function(e){
     console.log(e);
+    let weak_self = this;
     let orderId = e.currentTarget.dataset.orderIndex;
     wx.showModal({
       content: '确定取消订单？',
       complete:res=>{
         console.log(res);
         if(res.confirm){
-          console.log('取消订单'+orderId);
+          wx.cloud.database().collection('order_list').doc(orderId).remove({
+            success : res=>{
+              console.log(res);
+              console.log('取消订单' + orderId);
+              wx.showToast({
+                duration : 1,
+                title: '取消订单成功',
+                complete : res =>{
+                  console.log('fail');
+                }
+              })
+              // weak_self.refreshData();
+            },
+            fail : res => {
+              console.log('fail');
+            }
+          });
+          
         }
       }
     })

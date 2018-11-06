@@ -1,10 +1,16 @@
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
 .goods_sup_view{
   position: absolute;
   left: 30rpx;
   top: 0px;
-  right: 30rpx;
+  width: 690rpx;
+  /* right: 30rpx; */
   bottom: 40px;
-  /* background: rebeccapurple; */
+  padding-bottom: 5px;
 }
 .shop_goods_view{
   border-radius: 8px;
