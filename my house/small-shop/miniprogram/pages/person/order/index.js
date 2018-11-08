@@ -180,10 +180,9 @@ Page({
                 duration : 1,
                 title: '取消订单成功',
                 complete : res =>{
-                  console.log('fail');
+                  weak_self.refreshData();
                 }
               })
-              // weak_self.refreshData();
             },
             fail : res => {
               console.log('fail');
@@ -229,13 +228,24 @@ Page({
         break;
       case 1: //确认收货
       {
+        let weak_self =this;
+ 
         wx.showModal({
           title : '确认收货？',
           content: '请确认已收到货物，避免造成经济损失',
           complete: res => {
             console.log(res);
             if (res.confirm) {
-              console.log('确认订单' + orderId);
+              wx.cloud.database().collection('order_list').doc(orderId).update({
+                data : {
+                  state : 2
+                },
+              }).then(ress => {
+                console.log('确认订单' + orderId);
+                weak_self.refreshData();
+              });
+
+              
             }
           }
         })

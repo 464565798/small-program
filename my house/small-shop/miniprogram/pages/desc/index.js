@@ -32,6 +32,7 @@ Page({
     // desc_image:[
 
     // ],
+    goodsId : null,
     buy_number : 1,
     rank_desc : "",
     hadSelectRank:{},
@@ -41,7 +42,8 @@ Page({
     windowHeight:0,
     rankMode:true,
     // 0 -无跳转  1 - 购物车  2- 订单
-    skipType : 0
+    skipType : 0,
+    is_collection : false
   },
 
   /**
@@ -115,6 +117,14 @@ Page({
         console.log(res);
       }
     });
+    let promise = this.getCollectionGoods();
+    promise.then(res => {
+      this.data.is_collection = false;
+     if(res.data.length > 0){
+       this.data.is_collection = this.IsInArray(res.data[0].goods_list,this.data.goodId);
+       this.setData(this.data);
+     } 
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -172,12 +182,59 @@ Page({
       rankMode : false
       })
   },
+  getCollectionGoods : function(){
+    let db = wx.cloud.database();
+    return new Promise((resolve,reject) => {
+      db.collection('collection_goods_list').get({
+        success: res => {
+          resolve(res);
+        },
+        fail: res => {
+          reject(res);
+        }
+      })
+    });
+  },
   bottomAction : function(e){
+    let weak_self = this;
     let targetType = e.currentTarget.dataset.type;
-    console.log(targetType);
+    let db = wx.cloud.database();
+    
     switch(targetType){
       case 'collection':
-
+        let promise =this.getCollectionGoods();
+        promise.then( res => {
+          if (res.data.length > 0) {
+            console.log('>0');
+            var data = res.data[0];
+            var goods_list = data.goods_list ? data.goods_list : [];
+            if (weak_self.IsInArray(goods_list, weak_self.data.goodsId)) {
+              console.log(weak_self.data.goodsId);
+              return;
+            }
+            goods_list.push(weak_self.data.goodsId);
+            db.collection('collection_goods_list').doc(data._id).update({
+              data: {
+                goods_list: goods_list
+              }
+            }).then(res => {
+              console.log(res);
+            });
+          } else {
+            console.log('=0');
+            var goods_list = [weak_self.data.goodsId];
+            db.collection('collection_goods_list').add({
+              data: {
+                goods_list: goods_list
+              }
+            }).then(res => {
+              console.log(res);
+            });
+          }
+        },res => {
+          console.log(res);
+        });   
+            
       break;
       case 'share':
         
@@ -190,6 +247,10 @@ Page({
       break;
     }
 
+  },
+  IsInArray : function(arr, val){
+    　　var testStr = ',' + arr.join(",") + ",";
+    　　return testStr.indexOf("," + val + ",") != -1;
   },
   goBuyCar : function(){
     if (this.rankComplete()) {

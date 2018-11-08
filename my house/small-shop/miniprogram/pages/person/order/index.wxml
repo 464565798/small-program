@@ -40,7 +40,7 @@
       <button wx:if='{{item.state==1}}' bindtap='returnOrderAction' data-order-index='{{item._id}}'>退款/退货</button>
     </view>
     <view style='clear:both;width:700rpx;height:1px;margin-top:40rpx;margin-left:20rpx;background:lightgray;'></view>
-    <view class='bttom_button' bindtap='bottom_action' data-order-state='{{item.state}}' data-order-id='{{item._id}}'>
+    <view class='bttom_button' bindtap='bottom_action' data-order-state='{{item.state}}' data-order-index='{{item._id}}'>
       <button wx:if='{{item.state==0}}'>支付订单</button>
       <button wx:if='{{item.state==1}}'>确认收货</button>
       <button wx:if='{{item.state==2}}'>去评价</button>

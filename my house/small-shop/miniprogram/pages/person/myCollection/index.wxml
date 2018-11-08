@@ -1,0 +1,6 @@
+<view class='goods_view'>
+  <!-- <block wx:if='{{isBlockStyle}}'> -->
+    <import src='../common_good/index.wxml'/>
+    <template is='common_goods' data="{{all_goods:goods_list}}"></template>
+
+</view>

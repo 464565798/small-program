@@ -1,0 +1,13 @@
+/* 商品 */
+.goods_view{
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 190rpx;
+  background: lightgray;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+@import "../../common_good/index.wxss";
