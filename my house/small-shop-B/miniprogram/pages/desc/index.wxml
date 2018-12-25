@@ -1,0 +1,43 @@
+<view><text class='preLab'>商品名称</text><input class='title' type='text' placeholder='请输入商品名' value='{{goods.goods_name}}' bindinput='detailChangeAction' data-data-type='name'></input></view>
+<view><text class='preLab'>商品描述</text><textarea class='desc' value='{{goods.goods_desc}}' bindinput='detailChangeAction' data-data-type='desc'></textarea></view>
+<view><text class='preLab'>商品价格(￥)</text><input class='title' type='text' placeholder='请输入价格' value='{{goods.goods_price}}' bindinput='detailChangeAction' data-data-type='price'></input></view>
+<view>
+  <text class='preLab'>商品主图</text>
+  <view class='sup_image-view'>
+    <view wx:for="{{goods.goods_images}}" class='main_image' wx:key="{{index}}" bindlongpress='touchLongMainAction' data-index='{{index}}'>
+      <image src='{{item}}'></image>
+    </view>
+    <view class='main_image' bindtap='addMainAction'>
+      <image src='/resource/addImage.png'></image>
+    </view>
+    <view style='clear:both;'></view>
+  </view>
+</view>
+<view>
+  <text class='preLab'>商品详情</text>
+  <view class='sup_image-view'>
+    <view wx:for="{{goods.goods_detail}}" class='main_image' wx:key="{{index}}" bindlongpress='touchLongDetailAction' data-index='{{index}}'>
+      <image src='{{item}}'></image>
+    </view>
+    <view class='main_image' bindtap='addDetailAction'>
+      <image src='/resource/addImage.png'></image>
+    </view>
+    <view style='clear:both;'></view>
+  </view>
+</view>
+<view>
+  <text>商品类别</text>
+  <block wx:if='{{shop_category.length}}'>
+  <picker-view indicator-style="height: 50px;" style="width: 500rpx; height: 150px;margin:0 auto;" value="{{value}}"  bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{shop_category}}" style="line-height: 50px;" wx:key="{{index}}">{{item.cate_name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{shop_category_list}}" style="line-height: 50px;" wx:key="{{index}}">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+  </block>
+</view>
+<view>
+<button class='save' bindtap='saveAction'>保存</button>
+</view>

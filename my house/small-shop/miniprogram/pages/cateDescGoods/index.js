@@ -70,6 +70,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log(123);
     this.data.page = this.data.page + 1;
     this.refreshData();
   },

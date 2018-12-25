@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+
+  <button bindgetuserinfo='onGetUserInfo' open-type="getUserInfo">微信登录</button>
+  <button bindtap='managerLogin'>管理员登录</button>
+</view>

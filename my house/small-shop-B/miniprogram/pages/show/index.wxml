@@ -1,0 +1,53 @@
+
+<view class='top_search'>
+  <view class='input_search_view'>
+    <image src='../../resource/search.png'></image>
+    <input type='text' placeholder='请输入搜索商品的名称' confirm-type='search' bindconfirm='searchGoods' disabled='{{true}}'></input>
+  </view>
+  <view style='text-align:center;color:red' bindtap='addGoodsAction'>添加新商品</view>
+</view>
+
+<view class='cateragy_class'>
+  <view wx:if='{{current_sort_index==0}}' class='selectedSort' bindtap='changeSort' data-module-id='0'>
+    <text>综合排序</text>
+    <!-- <image src='../../resouce/arrow_down.png'></image> -->
+  </view>
+  <view wx:else class='normalSort' bindtap='changeSort' data-module-id='0'>
+    <text>综合排序</text>
+  </view>
+  <view wx:if='{{current_sort_index==1}}' class='selectedSort' bindtap='changeSort' data-module-id='1'>
+    <text>按销量</text>
+  </view>
+  <view wx:else class='normalSort' bindtap='changeSort' data-module-id='1'>
+    <text>按销量</text>
+
+  </view>
+  <view wx:if='{{current_sort_index==2}}' class='selectedSort' bindtap='changeSort' data-module-id='2'>
+    <text>发布时间</text>
+
+  </view>
+  <view wx:else class='normalSort' bindtap='changeSort' data-module-id='2'>
+    <text>发布时间</text>
+
+  </view>
+  <view bindtap='changeGoodsStyle'>
+    <image src='../../resource/fenlei.png'></image>
+  </view>
+</view>
+<view class='goods_view'>
+  <block wx:if='{{isBlockStyle}}'>
+    <import src='../common_good/index.wxml'/>
+    <template is='common_goods' data="{{all_goods:goods_list}}"></template>
+  </block>
+  <block wx:else>
+    <scroll-view>
+      <view wx:for='{{goods_list}}' wx:key='{{index}}' class='rowGoodsView'  data-goods-id='{{item.goods_id}}' bindtap='selectRowGoodsAction'>
+        <image src='{{item.goods_image}}' mode='scaleToFill'></image>
+        <view class='titleView'>{{item.goods_desc}}</view>
+        <view class='priceView'>￥{{item.goods_price}}</view>
+        <view class='shopName'>{{item.shopName}}</view>
+        <text></text>        
+      </view>
+    </scroll-view>
+  </block>
+</view>

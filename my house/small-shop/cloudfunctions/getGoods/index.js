@@ -99,7 +99,7 @@ function cateGoods(shops_id, cateName, orderType, page,searchWord){
   if(cateName && cateName != ''){
     coll = coll.where({
       goods_cate_name: cateName,
-      shop_id: shops_id
+      // shop_id: shops_id
     });
   }else{
     coll = coll.where({
@@ -115,7 +115,7 @@ function cateGoods(shops_id, cateName, orderType, page,searchWord){
     goods_sale_num : true,
     add_time: true,
     shop_id : true
-  }).orderBy(cateType,'asc').skip( page *4).limit(4).get().then(res=>{
+  }).orderBy(cateType,'asc').skip(page * 4).limit(4).get().then(res=>{
     return res.data;
   });
 

@@ -1,0 +1,47 @@
+page{
+  padding: 20rpx;
+}
+page view{
+  width: 710rpx;
+}
+.preLab{
+  font-size: 12px;
+  color: lightgray;
+}
+.title{
+  font-size: 13px;
+  color: black;
+}
+.desc{
+  font-size: 13px;
+  color: black;
+  width: 710rpx;
+  height: 60px;
+}
+
+.sup_image-view{
+  width: 710rpx;
+}
+.main_image{
+  float: left;
+  margin-right: 5rpx;
+  margin-top: 5rpx;
+  /* display: inline-block; */
+  width: 170rpx;
+  height: 170rpx;
+}
+.main_image image{
+  width: 170rpx;
+  height: 170rpx;
+  display: block;
+}
+
+
+.save{
+  padding: 0;
+  margin: 0 auto;
+  width: 600rpx;
+  margin-top: 10px;
+  background-color: "#0E8FE8";
+  backface-visibility: "#0E8FE8"
+}

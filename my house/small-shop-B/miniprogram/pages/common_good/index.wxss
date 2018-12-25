@@ -1,0 +1,60 @@
+page{
+  overflow-x: hidden;
+}
+
+.common_goods_left{
+  width: 750rpx;
+  /* flex-direction:row;
+  display: flex; */
+  /* float: left; */
+}
+.common_goods_detail{
+  width: 375rpx;
+  /* height: 450rpx; */
+  /* height: 300px; */
+  /* margin-right: 10rpx; */
+  margin-bottom: 4rpx;
+  /* margin-left: 10rpx; */
+  /* padding: 5px; */
+  overflow: hidden;
+  font-size: 13px;
+  float: left;
+  /* text-align: center; */
+
+} 
+.common_goods_detail image{
+  margin-left: 1rpx;
+  display: block;
+  width: 374rpx;
+  height: 390rpx;
+
+}
+.common_goods_detail_text_desc,.common_goods_detail_text_price{
+  margin-left: 10rpx;
+  color: black;
+  line-height: 15px;
+  font-size: 13px;
+  left: 1px;
+  display: block;
+  /* width: 340rpx; */
+  height: 30px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+  
+}
+.common_goods_detail_text_price{
+  color: rgb(188, 75, 89);
+}
+.common_goods_price{
+  margin-left: 1px;
+  background: white;
+}
+.common_goods_footer{
+  /* height: 0px; */
+  clear: both;
+}

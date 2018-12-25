@@ -38,7 +38,8 @@ function getDetail(goods_id){
     shop_id:true,
     goods_name:true,
     goods_image:true,
-    goods_images: true
+    goods_images: true,
+    goods_cate_name : true
   }).get().then(res => {
     if(res.data.length)
     return res.data[0];
