@@ -112,7 +112,10 @@ Page({
           wx.showModal({
             title: '添加成功',
             content: '',
-            showCancel: false
+            showCancel: false,
+            complete: function (res) { 
+              wx.navigateBack();
+            }
           })
           console.log(res.result);
         },
